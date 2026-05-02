@@ -1,0 +1,1314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Portfolio | Solaropex Energies</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #fff;
+        color: #1e2a32;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      :root {
+        --primary-dark: #0a2a3a; /* slightly cooler (blue-green) */
+        --primary: #1e5f7a; /* teal → blue mix */
+        --primary-light: #2f7f9d; /* lighter bluish tone */
+        --accent: #f9b23f;
+        --accent-dark: #e76f51;
+        --light-bg: #f8f9fa;
+        --white: #ffffff;
+        --black: #1e2a32;
+        --gray: #5a6b73;
+        --shadow-sm: 0 4px 20px rgba(0, 0, 30, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 30, 0.08);
+        --shadow-lg: 0 20px 50px rgba(0, 0, 30, 0.12);
+        --overlay-dark: rgba(10, 42, 58, 0.82);
+        --overlay-light: rgba(30, 95, 122, 0.65);
+        --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 80px;
+        width: 100%;
+      }
+
+      /* BUTTONS */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 36px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 16px;
+        letter-spacing: 0.3px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        box-shadow: var(--shadow-sm);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        background: var(--primary-dark);
+      }
+
+      /* ========== MASTER HEADER (EXACT FROM HOMEPAGE) ========== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+        z-index: 1100;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(30, 111, 92, 0.12);
+        overflow: visible !important;
+      }
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: var(--shadow-md);
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        gap: 20px;
+        width: 100%;
+        overflow: visible !important;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo-icon {
+        width: 58px;
+        height: 52px;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        flex-shrink: 0;
+      }
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: rotate(36deg);
+      }
+      .logo-text h2 {
+        font-size: 24px;
+        color: var(--primary-dark);
+        margin: 0;
+      }
+      .logo-text p {
+        font-size: 12px;
+        letter-spacing: 1.2px;
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: -6px;
+        padding-left: 3px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        flex-shrink: 0;
+        overflow: visible !important;
+      }
+      .nav-link {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 17px;
+        color: var(--black);
+        transition: var(--transition);
+        position: relative;
+        white-space: nowrap;
+      }
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: 0.3s;
+      }
+      .nav-link:hover:after,
+      .nav-link.active:after {
+        width: 100%;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--accent);
+      }
+      .btn-premium {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        padding: 8px 22px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        transition: var(--transition);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .btn-premium:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* DROPDOWN - FIXED Z-INDEX */
+      .dropdown {
+        position: relative;
+        z-index: 2000;
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 260px;
+        width: max-content;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease,
+          transform 0.3s ease;
+        padding: 12px 0;
+        border-top: 3px solid var(--accent);
+        z-index: 9999 !important;
+        pointer-events: none;
+      }
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 22px;
+        text-decoration: none;
+        color: var(--black);
+        font-size: 14px;
+        transition: var(--transition);
+        background: white;
+        white-space: nowrap;
+      }
+      .dropdown-menu a:hover {
+        background: var(--light-bg);
+        color: var(--accent);
+        padding-left: 30px;
+      }
+
+      /* MOBILE MENU */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        z-index: 1200;
+        padding: 8px;
+        flex-shrink: 0;
+      }
+      .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        transition: var(--transition);
+        border-radius: 2px;
+      }
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 360px;
+        height: 100vh;
+        background: white;
+        z-index: 1150;
+        transition: 0.4s ease;
+        padding: 100px 28px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+      }
+      .mobile-menu-overlay.active {
+        right: 0;
+      }
+      .mobile-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: var(--light-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--black);
+        font-size: 18px;
+        font-weight: 500;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .mobile-menu-overlay a i {
+        width: 28px;
+        color: var(--primary);
+      }
+      .mobile-dropdown {
+        border-bottom: 1px solid #eee;
+      }
+      .mobile-dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 12px 0;
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .mobile-dropdown-toggle span {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .mobile-submenu {
+        display: none;
+        padding-left: 40px;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .mobile-submenu.active {
+        display: flex;
+      }
+      .mobile-submenu a {
+        border-bottom: none;
+        padding: 8px 0;
+        font-size: 15px;
+      }
+      .mobile-cta {
+        margin-top: 20px;
+        padding-top: 10px;
+      }
+      .backdrop-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1140;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+      }
+      .backdrop-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @media (max-width: 1200px) {
+        .container {
+          padding: 0 40px;
+        }
+        .nav-links {
+          gap: 20px;
+        }
+        .nav-link {
+          font-size: 14px;
+        }
+        .btn-premium {
+          padding: 8px 18px;
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        .navbar {
+          padding: 12px 0;
+        }
+        .logo-icon {
+          width: 42px;
+          height: 38px;
+        }
+        .logo-text h2 {
+          font-size: 18px;
+        }
+        .logo-text p {
+          font-size: 8px;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .logo-icon {
+          width: 40px;
+          height: 35px;
+        }
+        .logo-text h2 {
+          font-size: 16px;
+        }
+      }
+
+      /* PAGE HEADER */
+      .page-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark) 0%,
+          #0e4d42 100%
+        );
+        padding: 180px 0 100px;
+        text-align: center;
+        color: white;
+      }
+      .page-header h1 {
+        font-size: 56px;
+        font-family: "Playfair Display", serif;
+        margin-bottom: 16px;
+      }
+      .page-header p {
+        font-size: 18px;
+        opacity: 0.9;
+      }
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 38px;
+        }
+        .page-header {
+          padding: 150px 0 70px;
+        }
+      }
+
+      /* PORTFOLIO SECTION */
+      .section {
+        padding: 90px 0;
+        overflow-x: hidden;
+      }
+      .section-title {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--primary-dark);
+        font-family: "Playfair Display", serif;
+      }
+      .section-title span {
+        color: var(--accent);
+      }
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+      }
+      .filter-btn {
+        background: var(--light-bg);
+        border: none;
+        padding: 10px 24px;
+        border-radius: 40px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 14px;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--accent);
+        color: white;
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        gap: 40px;
+      }
+      .portfolio-card {
+        background: white;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        border: 1px solid rgba(30, 111, 92, 0.1);
+      }
+      .portfolio-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+      }
+      .portfolio-card img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+      }
+      .portfolio-card h3 {
+        padding: 20px 24px 8px;
+        font-size: 22px;
+      }
+      .portfolio-card .project-meta {
+        padding: 0 24px;
+        display: flex;
+        gap: 16px;
+        font-size: 13px;
+        color: var(--primary);
+        border-bottom: 1px solid #eee;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+      }
+      .project-meta i {
+        margin-right: 5px;
+        color: var(--accent);
+      }
+      .portfolio-card p {
+        padding: 0 24px 12px;
+        color: var(--gray);
+      }
+      .btn-link {
+        margin: 0 24px 24px;
+        display: inline-block;
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .case-study {
+        background: var(--light-bg);
+        border-radius: 32px;
+        padding: 40px;
+        margin-top: 60px;
+      }
+      .stats-banner {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-top: 60px;
+        border-radius: 48px;
+      }
+      .stats-banner .stat-number {
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .testimonial-card {
+        background: white;
+        padding: 30px;
+        border-radius: 24px;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        border: 1px solid rgba(30, 111, 92, 0.1);
+      }
+      .testimonial-card i {
+        font-size: 32px;
+        color: var(--accent);
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      /* SCROLL ANIMATION */
+      .scroll-animate {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.2, 0.95, 0.4, 1),
+          transform 0.7s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+      .scroll-animate.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 32px;
+        }
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-banner .stat-number {
+          font-size: 32px;
+        }
+        .case-study {
+          padding: 24px;
+        }
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--primary-dark);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 60px 0 25px;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .footer-logo i {
+        font-size: 32px;
+        color: var(--accent);
+      }
+      .footer-col h4 {
+        font-size: 17px;
+        margin-bottom: 18px;
+        color: white;
+        position: relative;
+        font-weight: 600;
+      }
+      .footer-col h4:after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: var(--accent);
+      }
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-col ul li {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: 0.25s;
+        font-size: 14px;
+      }
+      .footer-col ul li a:hover {
+        color: var(--accent);
+        padding-left: 4px;
+      }
+      .social-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .social-links a {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: 0.25s;
+      }
+      .social-links a:hover {
+        background: var(--accent);
+        color: var(--primary-dark);
+      }
+      .footer-newsletter {
+        text-align: center;
+        padding: 30px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 20px;
+      }
+      .footer-newsletter form {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        max-width: 500px;
+        margin: 15px auto 0;
+        flex-wrap: wrap;
+      }
+      .footer-newsletter input {
+        flex: 1;
+        padding: 12px 20px;
+        border-radius: 40px;
+        border: none;
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+        font-size: 14px;
+      }
+      .footer-newsletter button {
+        background: var(--accent);
+        color: var(--primary-dark);
+        border: none;
+        padding: 12px 26px;
+        border-radius: 40px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 13px;
+        opacity: 0.7;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      @media (max-width: 992px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+      }
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* FLOATING BUTTONS */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .floating-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: var(--shadow-lg);
+        transition: 0.3s;
+        font-size: 26px;
+      }
+      .floating-btn-wa {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+      }
+      .floating-btn-call {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+      }
+      .floating-btn:hover {
+        transform: scale(1.08);
+      }
+    </style>
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">
+              <img
+                src="images/logo-favicon.png"
+                alt="Solar Opex Energies Logo"
+              />
+            </div>
+            <div class="logo-text">
+              <h2>Solar Opex Energies</h2>
+              <p>Powering Future with Solar Energy</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <div class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle"
+                >Services <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-menu">
+                <a href="residential-rooftop-solar.html"
+                  >Residential Rooftop Solar</a
+                >
+                <a href="commercial-solar-solutions.html"
+                  >Commercial Solar Solutions</a
+                >
+                <a href="industrial-solar-epc.html">Industrial Solar EPC</a>
+                <a href="solar-water-pumps.html">Solar Water Pumps</a>
+                <a href="solar-water-heaters.html">Solar Water Heaters</a>
+                <a href="solar-street-lights.html">Solar Street Lights</a>
+                <a href="solar-ev-charging-stations.html"
+                  >Solar EV Charging Stations</a
+                >
+              </div>
+            </div>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="portfolio.html" class="nav-link active">Portfolio</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="contact.html" class="btn-premium"
+              ><i class="fas fa-bolt"></i> Get Quote</a
+            >
+          </div>
+          <button class="menu-toggle" id="menuToggleBtn">
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+      <div class="mobile-close" id="closeMobileMenu">
+        <i class="fas fa-times"></i>
+      </div>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <div class="mobile-dropdown">
+        <div class="mobile-dropdown-toggle">
+          <span><i class="fas fa-solar-panel"></i> Services</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="mobile-submenu">
+          <a href="residential-rooftop-solar.html">Residential Rooftop Solar</a>
+          <a href="commercial-solar-solutions.html"
+            >Commercial Solar Solutions</a
+          >
+          <a href="industrial-solar-epc.html">Industrial Solar EPC</a>
+          <a href="solar-water-pumps.html">Solar Water Pumps</a>
+          <a href="solar-water-heaters.html">Solar Water Heaters</a>
+          <a href="solar-street-lights.html">Solar Street Lights</a>
+          <a href="solar-ev-charging-stations.html"
+            >Solar EV Charging Stations</a
+          >
+        </div>
+      </div>
+      <a href="about.html"><i class="fas fa-chart-line"></i> About Us</a>
+      <a href="portfolio.html"><i class="fas fa-images"></i> Portfolio</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <div class="mobile-cta">
+        <a
+          href="contact.html"
+          class="btn-primary"
+          style="justify-content: center"
+          ><i class="fas fa-headset"></i> Free Consultation</a
+        >
+      </div>
+    </div>
+    <div class="backdrop-overlay" id="backdropOverlay"></div>
+
+    <div class="floating-buttons">
+      <a
+        href="https://wa.me/919199707448"
+        class="floating-btn floating-btn-wa"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a href="tel:+919199707448" class="floating-btn floating-btn-call"
+        ><i class="fas fa-phone-alt"></i
+      ></a>
+    </div>
+
+    <main>
+      <div class="page-header">
+        <div class="container">
+          <h1 class="scroll-animate">
+            Our <span style="color: var(--accent)">Solar Portfolio</span>
+          </h1>
+          <p class="scroll-animate delay-1">
+            Real projects, real impact – 500+ installations across Bihar &
+            Jharkhand
+          </p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title scroll-animate">
+            Featured <span>Projects</span>
+          </h2>
+          <div class="filter-buttons scroll-animate delay-1" id="filterButtons">
+            <button class="filter-btn active" data-filter="all">
+              All Projects
+            </button>
+            <button class="filter-btn" data-filter="residential">
+              Residential
+            </button>
+            <button class="filter-btn" data-filter="commercial">
+              Commercial
+            </button>
+            <button class="filter-btn" data-filter="industrial">
+              Industrial
+            </button>
+            <button class="filter-btn" data-filter="government">
+              Government
+            </button>
+          </div>
+          <div
+            class="portfolio-grid scroll-animate delay-2"
+            id="portfolioGrid"
+          ></div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-bg)">
+        <div class="container">
+          <div class="case-study scroll-animate">
+            <h3
+              style="
+                font-size: 28px;
+                margin-bottom: 16px;
+                color: var(--primary-dark);
+              "
+            >
+              🌟 Featured Case Study: 1 MW Rooftop Solar for Patliputra
+              Industrial Park
+            </h3>
+            <p>
+              <strong>Challenge:</strong> High electricity costs and frequent
+              power cuts affecting production.
+            </p>
+            <p>
+              <strong>Solution:</strong> Designed and installed a 1 MW
+              grid-connected rooftop solar system with smart monitoring.
+            </p>
+            <p>
+              <strong>Results:</strong> 85% reduction in electricity bills,
+              payback period of 4.2 years, and 1,200 tons CO2 saved annually.
+            </p>
+            <a href="contact.html" class="btn-primary" style="margin-top: 20px"
+              ><i class="fas fa-download"></i> Request Case Study</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="stats-banner scroll-animate">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              justify-content: space-around;
+              flex-wrap: wrap;
+              gap: 40px;
+            "
+          >
+            <div>
+              <div class="stat-number">500+</div>
+              <div>Projects Completed</div>
+            </div>
+            <div>
+              <div class="stat-number">25+ MW</div>
+              <div>Installed Capacity</div>
+            </div>
+            <div>
+              <div class="stat-number">98%</div>
+              <div>Customer Satisfaction</div>
+            </div>
+            <div>
+              <div class="stat-number">35,000+</div>
+              <div>Trees Planted Equivalent</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title scroll-animate">
+            What Our <span>Clients Say</span>
+          </h2>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 30px;
+            "
+          >
+            <div class="testimonial-card scroll-animate delay-1">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Solaropex installed our 100kW system seamlessly. The team was
+                professional, and our energy savings exceeded expectations."
+              </p>
+              <h4>- Rajesh M., Industrialist</h4>
+            </div>
+            <div class="testimonial-card scroll-animate delay-2">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Highly recommend their solar water pumps. Reliable and
+                cost-effective for our farm. Great after-sales service."
+              </p>
+              <h4>- Kavita S., Farmer</h4>
+            </div>
+            <div class="testimonial-card scroll-animate delay-3">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "The EV charging station installation was seamless. Very happy
+                with the quality and performance."
+              </p>
+              <h4>- Ankit G., Business Owner</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col scroll-animate">
+            <div class="footer-logo">
+              <i class="fas fa-solar-panel"></i>
+              <div>
+                <h3>Solaropex</h3>
+                <p style="font-size: 9px; letter-spacing: 2px">
+                  POWERING TOMORROW
+                </p>
+              </div>
+            </div>
+            <p>
+              Leading solar EPC solutions provider in India. Committed to clean
+              energy and sustainable future.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a
+              ><a href="#"><i class="fab fa-instagram"></i></a
+              ><a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-col scroll-animate delay-1">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col scroll-animate delay-2">
+            <h4>Our Services</h4>
+            <ul>
+              <li>
+                <a href="residential-rooftop-solar.html">Rooftop Solar</a>
+              </li>
+              <li>
+                <a href="commercial-solar-solutions.html">Commercial Solar</a>
+              </li>
+              <li><a href="industrial-solar-epc.html">Industrial EPC</a></li>
+              <li><a href="solar-water-pumps.html">Solar Pumps</a></li>
+            </ul>
+          </div>
+          <div class="footer-col scroll-animate delay-3">
+            <h4>Contact Info</h4>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> A/14, Vyas Nagar Colony,
+                Opposite Sony Mansion, Ashiana Nagar, Patna, Bihar – 800025
+              </li>
+              <li><i class="fas fa-phone"></i> +91 9199707448</li>
+              <li><i class="fas fa-envelope"></i> solaropex90@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-newsletter scroll-animate">
+          <h4>Join the Solar Revolution</h4>
+          <form id="newsletterForm">
+            <input
+              type="email"
+              placeholder="Your email address"
+              required
+            /><button type="submit">Subscribe →</button>
+          </form>
+        </div>
+        <div class="footer-bottom scroll-animate">
+          <p>
+            &copy; 2025 Solaropex Energies. All rights reserved. | Designed with
+            <i class="fas fa-heart" style="color: var(--accent)"></i> for clean
+            future
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Portfolio Data
+      const projects = [
+        {
+          name: "1 MW Rooftop Solar",
+          location: "Patliputra Industrial Area, Patna",
+          img: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=600",
+          capacity: "1 MW",
+          category: "industrial",
+          description: "Grid-connected system with net metering",
+        },
+        {
+          name: "150 kW Commercial Solar",
+          location: "Vasundhara Mall, Muzaffarpur",
+          img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600",
+          capacity: "150 kW",
+          category: "commercial",
+          description: "Reduced energy cost by 70%",
+        },
+        {
+          name: "50 kW Residential Society",
+          location: "Ashiana Nagar, Patna",
+          img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600",
+          capacity: "50 kW",
+          category: "residential",
+          description: "20+ flats powered by solar",
+        },
+        {
+          name: "Solar Water Pumps - 50 Units",
+          location: "Samastipur District",
+          img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600",
+          capacity: "5 HP each",
+          category: "government",
+          description: "PM-KUSUM scheme",
+        },
+        {
+          name: "Solar Street Lights",
+          location: "NH-31, Begusarai",
+          img: "https://images.unsplash.com/photo-1573883431205-85b667ec5c9b?w=600",
+          capacity: "200 units",
+          category: "government",
+          description: "Automatic LED lighting",
+        },
+        {
+          name: "EV Charging Station",
+          location: "Patna - Ranchi Highway",
+          img: "https://images.unsplash.com/photo-1593941707882-5a14953f2e6e?w=600",
+          capacity: "DC Fast Charger",
+          category: "commercial",
+          description: "Solar carport with 2 chargers",
+        },
+        {
+          name: "500 kW Industrial Plant",
+          location: "Hajipur Industrial Area",
+          img: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600",
+          capacity: "500 kW",
+          category: "industrial",
+          description: "Captive consumption",
+        },
+        {
+          name: "10 kW Residential Villa",
+          location: "Patna City",
+          img: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600",
+          capacity: "10 kW",
+          category: "residential",
+          description: "Hybrid system with battery backup",
+        },
+      ];
+
+      function renderPortfolio(filter = "all") {
+        const grid = document.getElementById("portfolioGrid");
+        if (!grid) return;
+        const filtered =
+          filter === "all"
+            ? projects
+            : projects.filter((p) => p.category === filter);
+        grid.innerHTML = filtered
+          .map(
+            (p) => `
+            <div class="portfolio-card">
+                <img src="${p.img}" alt="${p.name}">
+                <h3>${p.name}</h3>
+                <div class="project-meta"><span><i class="fas fa-map-marker-alt"></i> ${p.location}</span><span><i class="fas fa-bolt"></i> ${p.capacity}</span></div>
+                <p>${p.description}</p>
+                <a href="contact.html" class="btn-link">Request Similar Quote →</a>
+            </div>
+        `,
+          )
+          .join("");
+      }
+
+      // Filter buttons
+      document.addEventListener("DOMContentLoaded", function () {
+        const btns = document.querySelectorAll(".filter-btn");
+        btns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            btns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            const filter = this.getAttribute("data-filter");
+            renderPortfolio(filter);
+          });
+        });
+        renderPortfolio("all");
+      });
+
+      // Mobile Menu + Header Scroll + Animations
+      (function () {
+        const menuToggle = document.getElementById("menuToggleBtn");
+        const mobileMenu = document.getElementById("mobileMenuOverlay");
+        const backdrop = document.getElementById("backdropOverlay");
+        const closeBtn = document.getElementById("closeMobileMenu");
+        const header = document.getElementById("main-header");
+
+        function openMenu() {
+          mobileMenu?.classList.add("active");
+          backdrop?.classList.add("active");
+          document.body.style.overflow = "hidden";
+          menuToggle?.classList.add("active");
+        }
+        function closeMenu() {
+          mobileMenu?.classList.remove("active");
+          backdrop?.classList.remove("active");
+          document.body.style.overflow = "";
+          menuToggle?.classList.remove("active");
+        }
+        menuToggle?.addEventListener("click", openMenu);
+        closeBtn?.addEventListener("click", closeMenu);
+        backdrop?.addEventListener("click", closeMenu);
+        document
+          .querySelectorAll(".mobile-menu-overlay a, .mobile-submenu a")
+          .forEach((link) => {
+            link.addEventListener("click", closeMenu);
+          });
+
+        const mobDropdownToggle = document.querySelector(
+          ".mobile-dropdown-toggle",
+        );
+        const mobSubmenu = document.querySelector(".mobile-submenu");
+        if (mobDropdownToggle && mobSubmenu) {
+          mobDropdownToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            mobSubmenu.classList.toggle("active");
+            const icon = mobDropdownToggle.querySelector("i:last-child");
+            if (mobSubmenu.classList.contains("active")) {
+              icon?.classList.remove("fa-chevron-down");
+              icon?.classList.add("fa-chevron-up");
+            } else {
+              icon?.classList.remove("fa-chevron-up");
+              icon?.classList.add("fa-chevron-down");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", () => {
+          header?.classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+        // Close mobile menu on resize
+        window.addEventListener("resize", () => {
+          if (
+            window.innerWidth > 1024 &&
+            mobileMenu?.classList.contains("active")
+          ) {
+            closeMenu();
+          }
+        });
+
+        // Scroll Animation Observer
+        const animatedElements = document.querySelectorAll(".scroll-animate");
+        const scrollObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+                scrollObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
+        );
+        animatedElements.forEach((el) => scrollObserver.observe(el));
+
+        // Newsletter
+        const newsletterForm = document.getElementById("newsletterForm");
+        newsletterForm?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Thank you! You will receive solar insights.");
+          newsletterForm.reset();
+        });
+      })();
+    </script>
+  </body>
+</html>

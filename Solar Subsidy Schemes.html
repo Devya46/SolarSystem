@@ -1,0 +1,1493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>
+      PM Surya Ghar & PM KUSUM | Solar Subsidy Schemes | Solar Opex Energies
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #fff;
+        color: #1e2a32;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      :root {
+        --primary-dark: #0a2a3a; /* slightly cooler (blue-green) */
+        --primary: #1e5f7a; /* teal → blue mix */
+        --primary-light: #2f7f9d; /* lighter bluish tone */
+        --accent: #f9b23f;
+        --accent-dark: #e76f51;
+        --light-bg: #f8f9fa;
+        --white: #ffffff;
+        --black: #1e2a32;
+        --gray: #5a6b73;
+        --shadow-sm: 0 4px 20px rgba(0, 0, 30, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 30, 0.08);
+        --shadow-lg: 0 20px 50px rgba(0, 0, 30, 0.12);
+        --overlay-dark: rgba(10, 42, 58, 0.82);
+        --overlay-light: rgba(30, 95, 122, 0.65);
+        --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 36px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 16px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        background: var(--primary-dark);
+      }
+
+      /* ========== PREMIUM HEADER (STICKY + ANIMATION) ========== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+        z-index: 1100;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(30, 111, 92, 0.12);
+      }
+
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: var(--shadow-md);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        gap: 20px;
+        width: 100%;
+        transition: padding 0.3s ease;
+      }
+      header.scrolled .navbar {
+        padding: 8px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+        gap: 10px;
+        transition: transform 0.3s ease;
+      }
+      .logo:hover {
+        transform: scale(1.02);
+      }
+
+      .logo-icon {
+        width: 58px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        flex-shrink: 0;
+      }
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: rotate(36deg);
+        transition: transform 0.3s ease;
+      }
+      .logo:hover .logo-icon img {
+        transform: rotate(36deg) scale(1.05);
+      }
+
+      .logo-text h2 {
+        font-size: 24px;
+        color: var(--primary-dark);
+        margin: 0;
+        line-height: 1.2;
+      }
+      .logo-text p {
+        font-size: 12px;
+        letter-spacing: 1.2px;
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: -6px;
+        padding-left: 3px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 17px;
+        color: var(--black);
+        transition: var(--transition);
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: 0.3s;
+      }
+
+      .nav-link:hover:after,
+      .nav-link.active:after {
+        width: 100%;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--accent);
+      }
+
+      .btn-premium {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        padding: 8px 22px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        transition: var(--transition);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .btn-premium:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        width: 260px;
+        box-shadow: var(--shadow-lg);
+        border-radius: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: var(--transition);
+        z-index: 9999;
+        padding: 12px 0;
+        border-top: 3px solid var(--accent);
+      }
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 22px;
+        text-decoration: none;
+        color: var(--black);
+        font-size: 14px;
+        transition: var(--transition);
+        background: white;
+        white-space: nowrap;
+      }
+      .dropdown-menu a:hover {
+        background: var(--light-bg);
+        color: var(--accent);
+        padding-left: 30px;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        z-index: 1200;
+        padding: 8px;
+        flex-shrink: 0;
+      }
+      .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        transition: var(--transition);
+        border-radius: 2px;
+      }
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 360px;
+        height: 100vh;
+        background: white;
+        z-index: 1150;
+        transition: 0.4s ease;
+        padding: 100px 28px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+      }
+      .mobile-menu-overlay.active {
+        right: 0;
+      }
+      .mobile-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: var(--light-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 20px;
+        transition: all 0.2s;
+      }
+      .mobile-close:hover {
+        background: var(--accent);
+        color: white;
+      }
+      .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--black);
+        font-size: 18px;
+        font-weight: 500;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s;
+      }
+      .mobile-menu-overlay a:hover {
+        color: var(--accent);
+        padding-left: 8px;
+      }
+      .mobile-menu-overlay a i {
+        width: 28px;
+        color: var(--primary);
+      }
+      .mobile-dropdown {
+        border-bottom: 1px solid #eee;
+      }
+      .mobile-dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 12px 0;
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .mobile-dropdown-toggle span {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .mobile-submenu {
+        display: none;
+        padding-left: 40px;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .mobile-submenu.active {
+        display: flex;
+      }
+      .mobile-submenu a {
+        border-bottom: none;
+        padding: 8px 0;
+        font-size: 15px;
+      }
+      .mobile-cta {
+        margin-top: 20px;
+        padding-top: 10px;
+      }
+      .backdrop-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1140;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+      }
+      .backdrop-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        .logo-icon {
+          width: 42px;
+          height: 38px;
+        }
+        .logo-text h2 {
+          font-size: 18px;
+        }
+        .logo-text p {
+          font-size: 8px;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .logo-icon {
+          width: 38px;
+          height: 34px;
+        }
+      }
+
+      /* Hero Section */
+      .hero-scheme {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        padding: 160px 0 90px;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-scheme::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>')
+          repeat-x bottom;
+        background-size: cover;
+        opacity: 0.15;
+        pointer-events: none;
+      }
+      .hero-scheme h1 {
+        font-size: 58px;
+        font-family: "Playfair Display", serif;
+        animation: fadeInUp 0.8s ease-out;
+      }
+      .hero-scheme h1 span {
+        color: var(--accent);
+      }
+      .hero-scheme p {
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+      }
+      .hero-badge {
+        background: rgba(255, 255, 255, 0.15);
+        display: inline-block;
+        padding: 8px 28px;
+        border-radius: 60px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        backdrop-filter: blur(4px);
+        animation: fadeInUp 0.6s ease-out;
+      }
+      .eligibility-card {
+        background: white;
+        color: #1e2a32;
+        border-radius: 32px;
+        padding: 30px 40px;
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        box-shadow: var(--shadow-lg);
+        animation: fadeInUp 0.8s ease-out 0.3s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      @keyframes pulseGlow {
+        0% {
+          box-shadow: 0 0 0 0 rgba(249, 178, 63, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(249, 178, 63, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(249, 178, 63, 0);
+        }
+      }
+
+      /* Sections */
+      .section {
+        padding: 90px 0;
+      }
+      .section-title {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--primary-dark);
+        font-family: "Playfair Display", serif;
+      }
+      .section-title span {
+        color: var(--accent);
+        position: relative;
+        display: inline-block;
+      }
+      .section-title span::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: var(--accent);
+        opacity: 0.2;
+        border-radius: 4px;
+        z-index: -1;
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 40px;
+        margin-top: 40px;
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 28px;
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid rgba(30, 111, 92, 0.1);
+        box-shadow: var(--shadow-sm);
+      }
+      .card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+      }
+      .card i {
+        font-size: 48px;
+        color: var(--accent);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+      .card:hover i {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .subsidy-table {
+        background: var(--light-bg);
+        border-radius: 32px;
+        padding: 30px;
+        margin-top: 40px;
+      }
+      .subsidy-table table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+      .subsidy-table th,
+      .subsidy-table td {
+        padding: 18px 20px;
+        text-align: left;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .subsidy-table th {
+        background: var(--primary-dark);
+        color: white;
+        font-weight: 600;
+      }
+      .subsidy-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .eligibility-form {
+        background: white;
+        border-radius: 32px;
+        padding: 45px;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s;
+      }
+      .eligibility-form:hover {
+        transform: translateY(-5px);
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 16px 20px;
+        border-radius: 60px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        transition: all 0.3s;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: var(--accent);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(249, 178, 63, 0.2);
+      }
+
+      .cta-banner {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        margin: 0 80px 80px;
+        border-radius: 48px;
+        text-align: center;
+        padding: 70px 60px;
+        color: white;
+        transition: all 0.3s;
+        animation: pulseGlow 2s infinite;
+      }
+      .cta-banner:hover {
+        transform: scale(1.01);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+        .hero-scheme h1 {
+          font-size: 36px;
+        }
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .cta-banner {
+          margin: 0 20px 60px;
+          padding: 40px 20px;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+        .eligibility-card {
+          flex-direction: column;
+          text-align: center;
+        }
+        .subsidy-table {
+          overflow-x: auto;
+        }
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary-dark);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 70px 0 30px;
+        margin-top: 40px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        margin-bottom: 50px;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .footer-logo i {
+        font-size: 36px;
+        color: var(--accent);
+        transition: transform 0.3s;
+      }
+      .footer-logo:hover i {
+        transform: rotate(10deg);
+      }
+      .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        color: white;
+        position: relative;
+        display: inline-block;
+      }
+      .footer-col h4:after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s;
+      }
+      .footer-col:hover h4:after {
+        width: 80px;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a,
+      .contact-info li {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .footer-col ul li a:hover {
+        color: var(--accent);
+        padding-left: 6px;
+      }
+      .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .social-links a {
+        width: 42px;
+        height: 42px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: var(--transition);
+      }
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-4px) rotate(360deg);
+        color: var(--primary-dark);
+      }
+      .footer-newsletter {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 40px;
+      }
+      .footer-newsletter form {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        max-width: 500px;
+        margin: 20px auto 0;
+        flex-wrap: wrap;
+      }
+      .footer-newsletter input {
+        flex: 1;
+        padding: 14px 24px;
+        border-radius: 50px;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s;
+      }
+      .footer-newsletter input:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .footer-newsletter button {
+        background: var(--accent);
+        color: var(--primary-dark);
+        border: none;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .footer-newsletter button:hover {
+        transform: scale(1.05);
+        background: #ffaa33;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 32px;
+        font-size: 13px;
+      }
+
+      /* Floating Buttons */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .floating-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: var(--shadow-lg);
+        transition: 0.3s;
+        font-size: 26px;
+        animation: float 2s ease-in-out infinite;
+      }
+      .floating-btn-wa {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+        animation-delay: 0s;
+      }
+      .floating-btn-call {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        animation-delay: 0.3s;
+      }
+      .floating-btn:hover {
+        transform: scale(1.12) translateY(-5px);
+        animation: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PREMIUM HEADER -->
+    <header id="main-header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">
+              <img
+                src="images/logo-favicon.png"
+                alt="Solar Opex Energies Logo"
+              />
+            </div>
+            <div class="logo-text">
+              <h2>Solar Opex Energies</h2>
+              <p>Powering Future with Solar Energy</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <div class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle"
+                >Services <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-menu">
+                <a href="residential-rooftop-solar.html"
+                  >Residential Rooftop Solar</a
+                >
+                <a href="commercial-solar-solutions.html"
+                  >Commercial Solar Solutions</a
+                >
+                <a href="industrial-solar-epc.html">Industrial Solar EPC</a>
+                <a href="solar-water-pumps.html">Solar Water Pumps</a>
+                <a href="solar-water-heaters.html">Solar Water Heaters</a>
+                <a href="solar-street-lights.html">Solar Street Lights</a>
+                <a href="Solar Subsidy Schemes.html">Solar Subsidy Schemes</a>
+              </div>
+            </div>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="contact.html" class="btn-premium"
+              ><i class="fas fa-bolt"></i> Get Quote</a
+            >
+          </div>
+          <button class="menu-toggle" id="menuToggleBtn">
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+      <div class="mobile-close" id="closeMobileMenu">
+        <i class="fas fa-times"></i>
+      </div>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <div class="mobile-dropdown">
+        <div class="mobile-dropdown-toggle">
+          <span><i class="fas fa-solar-panel"></i> Services</span
+          ><i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="mobile-submenu">
+          <a href="residential-rooftop-solar.html">Residential Rooftop Solar</a
+          ><a href="commercial-solar-solutions.html"
+            >Commercial Solar Solutions</a
+          >
+          <a href="industrial-solar-epc.html">Industrial Solar EPC</a
+          ><a href="solar-water-pumps.html">Solar Water Pumps</a>
+          <a href="solar-water-heaters.html">Solar Water Heaters</a
+          ><a href="solar-street-lights.html">Solar Street Lights</a>
+          <a href="Solar Subsidy Schemes.html">Solar Subsidy Schemes</a>
+        </div>
+      </div>
+      <a href="about.html"><i class="fas fa-chart-line"></i> About Us</a>
+      <a href="portfolio.html"><i class="fas fa-images"></i> Portfolio</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <div class="mobile-cta">
+        <a
+          href="contact.html"
+          class="btn-primary"
+          style="justify-content: center"
+          ><i class="fas fa-headset"></i> Free Consultation</a
+        >
+      </div>
+    </div>
+    <div class="backdrop-overlay" id="backdropOverlay"></div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+      <a
+        href="https://wa.me/919199707448"
+        class="floating-btn floating-btn-wa"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a href="tel:+919199707448" class="floating-btn floating-btn-call"
+        ><i class="fas fa-phone-alt"></i
+      ></a>
+    </div>
+
+    <main>
+      <div class="hero-scheme">
+        <div class="container">
+          <div class="hero-badge">
+            <i class="fas fa-sun"></i> Government of India Initiative
+          </div>
+          <h1>PM <span>Surya Ghar</span> & PM KUSUM Yojna</h1>
+          <p style="font-size: 20px; max-width: 700px; margin: 0 auto">
+            Powering Future with Solar Energy — Avail up to 40% subsidy on
+            rooftop solar & solar pumps. Switch to solar, gift your home a
+            bright future.
+          </p>
+          <div class="eligibility-card">
+            <div>
+              <i
+                class="fas fa-bolt"
+                style="font-size: 38px; color: var(--accent)"
+              ></i
+              ><br /><strong>₹30,000 - ₹78,000</strong><br />Subsidy for 1-3kW
+            </div>
+            <div>
+              <i
+                class="fas fa-tractor"
+                style="font-size: 38px; color: var(--accent)"
+              ></i
+              ><br /><strong>PM KUSUM</strong><br />60% subsidy on solar pumps
+            </div>
+            <div>
+              <a href="#" class="btn-primary" id="scrollToEligibilityBtn"
+                ><i class="fas fa-check-circle"></i> Check Your Eligibility →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Government <span>Subsidy Schemes</span></h2>
+          <div class="grid-2">
+            <div class="card animate-on-scroll">
+              <i class="fas fa-home"></i>
+              <h3>PM Surya Ghar: Muft Bijli Yojana</h3>
+              <p>
+                Rooftop solar for residential households. Subsidy up to ₹78,000
+                for 3kW system. Generate free electricity & sell excess to grid.
+              </p>
+              <strong style="color: var(--primary)"
+                >Eligibility: Indian households with roof ownership</strong
+              >
+            </div>
+            <div class="card animate-on-scroll delay-1">
+              <i class="fas fa-tachometer-alt"></i>
+              <h3>PM KUSUM Yojna</h3>
+              <p>
+                Solar water pumps & grid-connected agriculture pumps. 60%
+                central subsidy + state top-up. Transform farming with solar
+                energy.
+              </p>
+              <strong style="color: var(--primary)"
+                >Farmers, cooperatives, & water user associations</strong
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-bg)" class="section">
+        <div class="container">
+          <h2 class="section-title">
+            Subsidy <span>Breakdown</span> (PM Surya Ghar)
+          </h2>
+          <div class="subsidy-table animate-on-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>System Capacity</th>
+                  <th>Central Subsidy (₹)</th>
+                  <th>Estimated Investment (after subsidy)</th>
+                  <th>Annual Savings (approx.)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 kW - 2 kW</td>
+                  <td>₹30,000 - ₹60,000</td>
+                  <td>₹40,000 - ₹80,000</td>
+                  <td>₹12,000 - ₹24,000</td>
+                </tr>
+                <tr>
+                  <td>2 kW - 3 kW</td>
+                  <td>Up to ₹78,000</td>
+                  <td>₹85,000 - ₹1,20,000</td>
+                  <td>₹30,000+</td>
+                </tr>
+                <tr>
+                  <td>Above 3 kW (residential)</td>
+                  <td>Fixed ₹78,000 max</td>
+                  <td>₹1,50,000+ (for 5kW)</td>
+                  <td>₹48,000/year</td>
+                </tr>
+                <tr>
+                  <td>PM KUSUM (Pumps)</td>
+                  <td>60% of benchmark cost</td>
+                  <td>As low as ₹30,000 for 5HP pump</td>
+                  <td>Zero diesel cost, free irrigation</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 20px; font-size: 14px">
+              <i class="fas fa-info-circle"></i> * Additional state subsidies
+              applicable in Bihar, UP, Maharashtra etc.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">
+            Why <span>Solar Opex Energies</span> as Your EPC Partner?
+          </h2>
+          <div class="grid-3">
+            <div class="card animate-on-scroll">
+              <i class="fas fa-file-alt"></i>
+              <h3>End-to-End Subsidy Assistance</h3>
+              <p>
+                We handle all paperwork, DCR module sourcing & net metering
+                approvals.
+              </p>
+            </div>
+            <div class="card animate-on-scroll delay-1">
+              <i class="fas fa-hard-hat"></i>
+              <h3>Expert Installation</h3>
+              <p>
+                10+ years experience, 500+ successful rooftop projects in Bihar
+                & Jharkhand.
+              </p>
+            </div>
+            <div class="card animate-on-scroll delay-2">
+              <i class="fas fa-chart-line"></i>
+              <h3>Maximum Savings</h3>
+              <p>
+                Optimized design for highest generation; 5-year comprehensive
+                warranty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="eligibilitySection"
+        style="background: linear-gradient(100deg, #f0f9f4, white)"
+      >
+        <div class="container">
+          <h2 class="section-title">
+            Check Your <span>Eligibility</span> & Get Free Assessment
+          </h2>
+          <div class="grid-2">
+            <div class="eligibility-form animate-on-scroll">
+              <h3 style="margin-bottom: 20px">Apply for Solar Subsidy</h3>
+              <form id="eligibilityForm">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Full Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="tel"
+                    id="mobile"
+                    placeholder="Mobile Number"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <select id="schemeType">
+                    <option value="surya_ghar">PM Surya Ghar (Rooftop)</option>
+                    <option value="kusum">PM KUSUM (Solar Pump)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <select id="roofArea">
+                    <option value="<2">Roof Area: Less than 200 sqft</option>
+                    <option value="2-3">200-400 sqft</option>
+                    <option value=">3">Above 400 sqft</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <select id="state">
+                    <option value="Bihar">Bihar</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Other">Other State</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  class="btn-primary"
+                  style="width: 100%; justify-content: center"
+                >
+                  <i class="fas fa-headset"></i> Talk to Expert →
+                </button>
+              </form>
+              <p
+                id="formResultMsg"
+                style="margin-top: 15px; font-size: 14px"
+              ></p>
+            </div>
+            <div class="animate-on-scroll delay-1">
+              <img
+                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600"
+                alt="Solar Rooftop"
+                style="
+                  width: 100%;
+                  border-radius: 32px;
+                  object-fit: cover;
+                  height: 400px;
+                "
+              />
+              <div
+                style="
+                  background: var(--primary-dark);
+                  border-radius: 28px;
+                  padding: 30px;
+                  margin-top: 30px;
+                  color: white;
+                  text-align: center;
+                "
+              >
+                <i
+                  class="fas fa-rupee-sign"
+                  style="font-size: 42px; color: var(--accent)"
+                ></i>
+                <h3>Zero-Cost Consultation</h3>
+                <p>
+                  Our experts will design a custom solar solution & help you
+                  claim maximum government subsidy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">
+            Simple <span>Process</span> to Avail Subsidy
+          </h2>
+          <div class="grid-4">
+            <div class="card animate-on-scroll">
+              <i class="fas fa-1"></i>
+              <h3>Register on National Portal</h3>
+              <p>Apply through PM Surya Ghar portal or Solaropex assists.</p>
+            </div>
+            <div class="card animate-on-scroll delay-1">
+              <i class="fas fa-2"></i>
+              <h3>Feasibility & Quote</h3>
+              <p>Site survey by our engineers, provide estimated subsidy.</p>
+            </div>
+            <div class="card animate-on-scroll delay-2">
+              <i class="fas fa-3"></i>
+              <h3>Installation & Net Metering</h3>
+              <p>Quality installation, DISCOM approval for net meter.</p>
+            </div>
+            <div class="card animate-on-scroll delay-3">
+              <i class="fas fa-4"></i>
+              <h3>Subsidies Credited</h3>
+              <p>Central subsidy directly in bank account within 30 days.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-banner animate-on-scroll">
+        <h2>Powering Future with Solar Energy</h2>
+        <p>
+          Switch to solar today and reduce electricity bills up to 90% + Earn
+          from surplus export under Net Metering.
+        </p>
+        <a
+          href="#"
+          class="btn-primary"
+          style="background: white; color: var(--primary-dark)"
+          id="ctaOpenForm"
+          ><i class="fas fa-solar-panel"></i> Claim Your Subsidy Now</a
+        >
+      </div>
+    </main>
+
+    <!-- FOOTER (Matching Home Page) -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <i class="fas fa-solar-panel"></i>
+              <div>
+                <h3>Solar Opex Energies</h3>
+                <p>POWERING TOMORROW</p>
+              </div>
+            </div>
+            <p>
+              Leading solar EPC solutions provider in India. Committed to clean
+              energy and sustainable future.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a
+              ><a href="#"><i class="fab fa-instagram"></i></a
+              ><a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul>
+              <li>
+                <a href="residential-rooftop-solar.html">Rooftop Solar</a>
+              </li>
+              <li>
+                <a href="commercial-solar-solutions.html">Commercial Solar</a>
+              </li>
+              <li><a href="industrial-solar-epc.html">Industrial EPC</a></li>
+              <li><a href="solar-water-pumps.html">Solar Pumps</a></li>
+              <li>
+                <a href="solar-street-lights.html">Solar Street Lights</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Info</h4>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> A/14, Vyas Nagar Colony,
+                Opposite Sony Mansion, Ashiana Nagar, Patna, Bihar – 800025
+              </li>
+              <li><i class="fas fa-phone"></i> +91 9199707448</li>
+              <li>
+                <i class="fas fa-envelope"></i> Solar Opex Energies90@gmail.com
+              </li>
+              <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 7PM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Join the Solar Revolution</h4>
+          <form id="newsletterForm">
+            <input
+              type="email"
+              placeholder="Your email address"
+              required
+            /><button type="submit">Subscribe →</button>
+          </form>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Solar Opex Energies. All rights reserved. | Designed
+            with <i class="fas fa-heart" style="color: var(--accent)"></i> for
+            clean future
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll animation
+      const headerEl = document.getElementById("main-header");
+      window.addEventListener("scroll", () =>
+        headerEl.classList.toggle("scrolled", window.scrollY > 50),
+      );
+
+      // Mobile Menu
+      const menuBtn = document.getElementById("menuToggleBtn"),
+        mobileMenu = document.getElementById("mobileMenuOverlay"),
+        backdrop = document.getElementById("backdropOverlay"),
+        closeBtn = document.getElementById("closeMobileMenu");
+      const openM = () => {
+        mobileMenu.classList.add("active");
+        backdrop.classList.add("active");
+        document.body.style.overflow = "hidden";
+        if (menuBtn) menuBtn.classList.add("active");
+      };
+      const closeM = () => {
+        mobileMenu.classList.remove("active");
+        backdrop.classList.remove("active");
+        document.body.style.overflow = "";
+        if (menuBtn) menuBtn.classList.remove("active");
+      };
+      if (menuBtn) menuBtn.addEventListener("click", openM);
+      if (closeBtn) closeBtn.addEventListener("click", closeM);
+      if (backdrop) backdrop.addEventListener("click", closeM);
+      document
+        .querySelectorAll(".mobile-menu-overlay a")
+        .forEach((l) => l.addEventListener("click", closeM));
+      const mobToggle = document.querySelector(".mobile-dropdown-toggle"),
+        mobSub = document.querySelector(".mobile-submenu");
+      if (mobToggle && mobSub)
+        mobToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          mobSub.classList.toggle("active");
+          const icon = mobToggle.querySelector("i:last-child");
+          if (mobSub.classList.contains("active")) {
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+          } else {
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+          }
+        });
+
+      // Scroll to eligibility form
+      document
+        .getElementById("scrollToEligibilityBtn")
+        ?.addEventListener("click", (e) => {
+          e.preventDefault();
+          document
+            .getElementById("eligibilitySection")
+            .scrollIntoView({ behavior: "smooth" });
+        });
+      document.getElementById("ctaOpenForm")?.addEventListener("click", (e) => {
+        e.preventDefault();
+        document
+          .getElementById("eligibilitySection")
+          .scrollIntoView({ behavior: "smooth" });
+      });
+
+      // Eligibility Form Handler
+      const form = document.getElementById("eligibilityForm");
+      const resultMsg = document.getElementById("formResultMsg");
+      if (form)
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("fullName").value,
+            mobile = document.getElementById("mobile").value,
+            scheme = document.getElementById("schemeType").value,
+            roof = document.getElementById("roofArea").value;
+          if (name && mobile && mobile.length >= 10) {
+            resultMsg.innerHTML = `✅ Thank you ${name}! Our solar expert will contact you shortly regarding ${scheme === "surya_ghar" ? "PM Surya Ghar" : "PM KUSUM"} subsidy.`;
+            resultMsg.style.color = "#1e6f5c";
+            form.reset();
+            setTimeout(() => {
+              resultMsg.innerHTML = "";
+            }, 5000);
+          } else {
+            resultMsg.innerHTML =
+              "⚠️ Please enter valid name and 10-digit mobile number.";
+            resultMsg.style.color = "#e76f51";
+          }
+        });
+
+      // Newsletter
+      document
+        .getElementById("newsletterForm")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Thank you! Solar insights incoming.");
+          e.target.reset();
+        });
+
+      // Scroll Animation Observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("animated");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".animate-on-scroll")
+        .forEach((el) => observer.observe(el));
+      setTimeout(() => {
+        document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100)
+            el.classList.add("animated");
+        });
+      }, 100);
+    </script>
+  </body>
+</html>

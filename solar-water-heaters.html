@@ -1,0 +1,1557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Solar Water Heaters | Solar Opex Energies</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #fff;
+        color: #1e2a32;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      :root {
+        --primary-dark: #0a2a3a; /* slightly cooler (blue-green) */
+        --primary: #1e5f7a; /* teal → blue mix */
+        --primary-light: #2f7f9d; /* lighter bluish tone */
+        --accent: #f9b23f;
+        --accent-dark: #e76f51;
+        --light-bg: #f8f9fa;
+        --white: #ffffff;
+        --black: #1e2a32;
+        --gray: #5a6b73;
+        --shadow-sm: 0 4px 20px rgba(0, 0, 30, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 30, 0.08);
+        --shadow-lg: 0 20px 50px rgba(0, 0, 30, 0.12);
+        --overlay-dark: rgba(10, 42, 58, 0.82);
+        --overlay-light: rgba(30, 95, 122, 0.65);
+        --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+
+      /* BUTTONS */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 36px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 16px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        background: var(--primary-dark);
+      }
+
+      /* ========== PREMIUM HEADER (STICKY + ANIMATION) ========== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+        z-index: 1100;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(30, 111, 92, 0.12);
+      }
+
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: var(--shadow-md);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        gap: 20px;
+        width: 100%;
+        transition: padding 0.3s ease;
+      }
+      header.scrolled .navbar {
+        padding: 8px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+        gap: 10px;
+        transition: transform 0.3s ease;
+      }
+      .logo:hover {
+        transform: scale(1.02);
+      }
+
+      .logo-icon {
+        width: 58px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        flex-shrink: 0;
+      }
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: rotate(36deg);
+        transition: transform 0.3s ease;
+      }
+      .logo:hover .logo-icon img {
+        transform: rotate(36deg) scale(1.05);
+      }
+
+      .logo-text h2 {
+        font-size: 24px;
+        color: var(--primary-dark);
+        margin: 0;
+        line-height: 1.2;
+      }
+      .logo-text p {
+        font-size: 12px;
+        letter-spacing: 1.2px;
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: -6px;
+        padding-left: 3px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 17px;
+        color: var(--black);
+        transition: var(--transition);
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: 0.3s;
+      }
+
+      .nav-link:hover:after,
+      .nav-link.active:after {
+        width: 100%;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--accent);
+      }
+
+      .btn-premium {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        padding: 8px 22px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        transition: var(--transition);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .btn-premium:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Desktop Dropdown */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        width: 260px;
+        box-shadow: var(--shadow-lg);
+        border-radius: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: var(--transition);
+        z-index: 9999;
+        padding: 12px 0;
+        border-top: 3px solid var(--accent);
+      }
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 22px;
+        text-decoration: none;
+        color: var(--black);
+        font-size: 14px;
+        transition: var(--transition);
+        background: white;
+        white-space: nowrap;
+      }
+      .dropdown-menu a:hover {
+        background: var(--light-bg);
+        color: var(--accent);
+        padding-left: 30px;
+      }
+
+      /* Mobile Menu */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        z-index: 1200;
+        padding: 8px;
+        flex-shrink: 0;
+      }
+      .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        transition: var(--transition);
+        border-radius: 2px;
+      }
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 360px;
+        height: 100vh;
+        background: white;
+        z-index: 1150;
+        transition: 0.4s ease;
+        padding: 100px 28px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+      }
+      .mobile-menu-overlay.active {
+        right: 0;
+      }
+      .mobile-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: var(--light-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 20px;
+        transition: all 0.2s;
+      }
+      .mobile-close:hover {
+        background: var(--accent);
+        color: white;
+      }
+      .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--black);
+        font-size: 18px;
+        font-weight: 500;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s;
+      }
+      .mobile-menu-overlay a:hover {
+        color: var(--accent);
+        padding-left: 8px;
+      }
+      .mobile-menu-overlay a i {
+        width: 28px;
+        color: var(--primary);
+      }
+      .mobile-dropdown {
+        border-bottom: 1px solid #eee;
+      }
+      .mobile-dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 12px 0;
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .mobile-dropdown-toggle span {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .mobile-submenu {
+        display: none;
+        padding-left: 40px;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .mobile-submenu.active {
+        display: flex;
+      }
+      .mobile-submenu a {
+        border-bottom: none;
+        padding: 8px 0;
+        font-size: 15px;
+      }
+      .mobile-cta {
+        margin-top: 20px;
+        padding-top: 10px;
+      }
+      .backdrop-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1140;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+      }
+      .backdrop-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        .logo-icon {
+          width: 42px;
+          height: 38px;
+        }
+        .logo-text h2 {
+          font-size: 18px;
+        }
+        .logo-text p {
+          font-size: 8px;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .logo-icon {
+          width: 38px;
+          height: 34px;
+        }
+      }
+
+      /* Page Header with Animation */
+      .page-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: white;
+        padding: 160px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>')
+          repeat-x bottom;
+        background-size: cover;
+        opacity: 0.2;
+        pointer-events: none;
+      }
+      .page-header h1 {
+        font-size: 56px;
+        font-family: "Playfair Display", serif;
+        animation: fadeInUp 0.8s ease-out;
+      }
+      .page-header p {
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+      }
+      .page-header .btn-primary {
+        animation: fadeInUp 0.8s ease-out 0.4s both;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      @keyframes pulseGlow {
+        0% {
+          box-shadow: 0 0 0 0 rgba(249, 178, 63, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(249, 178, 63, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(249, 178, 63, 0);
+        }
+      }
+
+      /* Sections */
+      .section {
+        padding: 90px 0;
+      }
+      .section-title {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--primary-dark);
+        font-family: "Playfair Display", serif;
+      }
+      .section-title span {
+        color: var(--accent);
+        position: relative;
+        display: inline-block;
+      }
+      .section-title span::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: var(--accent);
+        opacity: 0.2;
+        border-radius: 4px;
+        z-index: -1;
+      }
+
+      /* Scroll Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 40px;
+        margin-top: 40px;
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 28px;
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid rgba(30, 111, 92, 0.1);
+        box-shadow: var(--shadow-sm);
+      }
+      .card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+      }
+      .card i {
+        font-size: 48px;
+        color: var(--accent);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+      .card:hover i {
+        transform: scale(1.1) rotate(5deg);
+      }
+      .image-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin: 40px 0;
+      }
+      .image-card {
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        background: white;
+      }
+      .image-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+      .image-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .image-card:hover img {
+        transform: scale(1.08);
+      }
+      .image-card .content {
+        padding: 20px;
+      }
+      .calculator {
+        background: var(--light-bg);
+        border-radius: 32px;
+        padding: 50px;
+        transition: all 0.3s;
+      }
+      .calc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .calc-input-group label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .calc-input-group input,
+      .calc-input-group select {
+        width: 100%;
+        padding: 14px;
+        border-radius: 16px;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+        transition: all 0.3s;
+      }
+      .calc-input-group input:focus,
+      .calc-input-group select:focus {
+        border-color: var(--accent);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(249, 178, 63, 0.2);
+      }
+      .result-box {
+        background: var(--primary-dark);
+        color: white;
+        padding: 30px;
+        border-radius: 24px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+      .result-box:hover {
+        transform: scale(1.02);
+      }
+      .result-box .amount {
+        font-size: 44px;
+        font-weight: 800;
+        color: var(--accent);
+        margin: 15px 0;
+      }
+      .split-image {
+        width: 100%;
+        border-radius: 28px;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.4s ease;
+      }
+      .split-image:hover {
+        transform: scale(1.02);
+      }
+      .custom-list {
+        list-style: none;
+        margin: 20px 0;
+      }
+      .custom-list li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .custom-list li i {
+        color: var(--accent);
+        font-size: 18px;
+      }
+      .faq-list {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        background: white;
+        border-radius: 24px;
+        margin-bottom: 20px;
+        padding: 28px 36px;
+        border: 1px solid rgba(30, 111, 92, 0.1);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .faq-item:hover {
+        box-shadow: var(--shadow-sm);
+        border-color: var(--accent);
+      }
+      .faq-q {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .faq-q i {
+        color: var(--accent);
+        transition: 0.3s;
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        padding-top: 0;
+      }
+      .faq-item.active .faq-a {
+        max-height: 200px;
+        padding-top: 20px;
+      }
+      .faq-item.active .faq-q i {
+        transform: rotate(180deg);
+      }
+
+      .cta-banner {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        margin: 0 80px 80px;
+        border-radius: 48px;
+        text-align: center;
+        padding: 70px 60px;
+        color: white;
+        transition: all 0.3s;
+        animation: pulseGlow 2s infinite;
+      }
+      .cta-banner:hover {
+        transform: scale(1.01);
+      }
+
+      @media (max-width: 1024px) {
+        .grid-4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .image-card-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .container,
+        .section .container {
+          padding: 0 16px;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .image-card-grid {
+          grid-template-columns: 1fr;
+        }
+        .calculator {
+          padding: 30px;
+        }
+        .calc-grid {
+          grid-template-columns: 1fr;
+        }
+        .cta-banner {
+          margin: 0 16px 60px;
+          padding: 40px 24px;
+        }
+        .faq-item {
+          padding: 20px 24px;
+        }
+        .page-header h1 {
+          font-size: 38px;
+        }
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary-dark);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 70px 0 30px;
+        margin-top: 40px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        margin-bottom: 50px;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .footer-logo i {
+        font-size: 36px;
+        color: var(--accent);
+        transition: transform 0.3s;
+      }
+      .footer-logo:hover i {
+        transform: rotate(10deg);
+      }
+      .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        color: white;
+        position: relative;
+        display: inline-block;
+      }
+      .footer-col h4:after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s;
+      }
+      .footer-col:hover h4:after {
+        width: 80px;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a,
+      .contact-info li {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .footer-col ul li a:hover {
+        color: var(--accent);
+        padding-left: 6px;
+      }
+      .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .social-links a {
+        width: 42px;
+        height: 42px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: var(--transition);
+      }
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-4px) rotate(360deg);
+        color: var(--primary-dark);
+      }
+      .footer-newsletter {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 40px;
+      }
+      .footer-newsletter form {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        max-width: 500px;
+        margin: 20px auto 0;
+        flex-wrap: wrap;
+      }
+      .footer-newsletter input {
+        flex: 1;
+        padding: 14px 24px;
+        border-radius: 50px;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s;
+      }
+      .footer-newsletter input:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .footer-newsletter button {
+        background: var(--accent);
+        color: var(--primary-dark);
+        border: none;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .footer-newsletter button:hover {
+        transform: scale(1.05);
+        background: #ffaa33;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 32px;
+        font-size: 13px;
+      }
+
+      /* Floating Buttons */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .floating-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: var(--shadow-lg);
+        transition: 0.3s;
+        font-size: 26px;
+        animation: float 2s ease-in-out infinite;
+      }
+      .floating-btn-wa {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+        animation-delay: 0s;
+      }
+      .floating-btn-call {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        animation-delay: 0.3s;
+      }
+      .floating-btn:hover {
+        transform: scale(1.12) translateY(-5px);
+        animation: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PREMIUM HEADER -->
+    <header id="main-header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">
+              <img
+                src="images/logo-favicon.png"
+                alt="Solar Opex Energies Logo"
+              />
+            </div>
+            <div class="logo-text">
+              <h2>Solar Opex Energies</h2>
+              <p>Powering Future with Solar Energy</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <div class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle"
+                >Services <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-menu">
+                <a href="residential-rooftop-solar.html"
+                  >Residential Rooftop Solar</a
+                >
+                <a href="commercial-solar-solutions.html"
+                  >Commercial Solar Solutions</a
+                >
+                <a href="industrial-solar-epc.html">Industrial Solar EPC</a>
+                <a href="solar-water-pumps.html">Solar Water Pumps</a>
+                <a href="solar-water-heaters.html">Solar Water Heaters</a>
+                <a href="solar-street-lights.html">Solar Street Lights</a>
+                <a href="Solar Subsidy Schemes.html">Solar Subsidy Schemes</a>
+              </div>
+            </div>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="contact.html" class="btn-premium"
+              ><i class="fas fa-bolt"></i> Get Quote</a
+            >
+          </div>
+          <button class="menu-toggle" id="menuToggleBtn">
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+      <div class="mobile-close" id="closeMobileMenu">
+        <i class="fas fa-times"></i>
+      </div>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <div class="mobile-dropdown">
+        <div class="mobile-dropdown-toggle">
+          <span><i class="fas fa-solar-panel"></i> Services</span
+          ><i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="mobile-submenu">
+          <a href="residential-rooftop-solar.html">Residential Rooftop Solar</a
+          ><a href="commercial-solar-solutions.html"
+            >Commercial Solar Solutions</a
+          >
+          <a href="industrial-solar-epc.html">Industrial Solar EPC</a
+          ><a href="solar-water-pumps.html">Solar Water Pumps</a>
+          <a href="solar-water-heaters.html">Solar Water Heaters</a
+          ><a href="solar-street-lights.html">Solar Street Lights</a>
+          <a href="Solar Subsidy Schemes.html">Solar Subsidy Schemes</a>
+        </div>
+      </div>
+      <a href="about.html"><i class="fas fa-chart-line"></i> About Us</a>
+      <a href="portfolio.html"><i class="fas fa-images"></i> Portfolio</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <div class="mobile-cta">
+        <a
+          href="contact.html"
+          class="btn-primary"
+          style="justify-content: center"
+          ><i class="fas fa-headset"></i> Free Consultation</a
+        >
+      </div>
+    </div>
+    <div class="backdrop-overlay" id="backdropOverlay"></div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+      <a
+        href="https://wa.me/919199707448"
+        class="floating-btn floating-btn-wa"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a href="tel:+919199707448" class="floating-btn floating-btn-call"
+        ><i class="fas fa-phone-alt"></i
+      ></a>
+    </div>
+
+    <main>
+      <div class="page-header">
+        <div class="container">
+          <h1>Solar <span style="color: var(--accent)">Water Heaters</span></h1>
+          <p>
+            Energy-efficient hot water solutions for homes, hotels, hospitals,
+            and industries. Save up to 80% on water heating costs.
+          </p>
+          <a href="contact.html" class="btn-primary" style="margin-top: 24px"
+            ><i class="fas fa-fire"></i> Get Free Quote</a
+          >
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Why <span>Solar Water Heater?</span></h2>
+          <div class="grid-4">
+            <div class="card animate-on-scroll">
+              <i class="fas fa-charging-station"></i>
+              <h3>80% Savings</h3>
+              <p>On electricity/fuel bills</p>
+            </div>
+            <div class="card animate-on-scroll delay-1">
+              <i class="fas fa-leaf"></i>
+              <h3>Eco-Friendly</h3>
+              <p>Zero carbon emissions</p>
+            </div>
+            <div class="card animate-on-scroll delay-2">
+              <i class="fas fa-coins"></i>
+              <h3>ROI in 2-3 Years</h3>
+              <p>Quick payback period</p>
+            </div>
+            <div class="card animate-on-scroll delay-3">
+              <i class="fas fa-wrench"></i>
+              <h3>Low Maintenance</h3>
+              <p>15+ years lifespan</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-bg)" class="section">
+        <div class="container">
+          <h2 class="section-title">Choose Your <span>Technology</span></h2>
+          <div class="grid-2">
+            <div
+              class="card animate-on-scroll"
+              style="text-align: left; padding: 40px"
+            >
+              <i class="fas fa-tachometer-alt" style="font-size: 48px"></i>
+              <h3>FPC – Flat Plate Collector</h3>
+              <p>
+                ✔ Higher efficiency in all seasons<br />✔ Better for cold
+                climates<br />✔ Longer lifespan (25+ years)<br />✔ Suitable for
+                large applications
+              </p>
+              <span
+                style="
+                  background: var(--accent);
+                  display: inline-block;
+                  padding: 4px 12px;
+                  border-radius: 20px;
+                  margin-top: 10px;
+                  color: white;
+                "
+                >Premium</span
+              >
+            </div>
+            <div
+              class="card animate-on-scroll delay-1"
+              style="text-align: left; padding: 40px"
+            >
+              <i class="fas fa-sun" style="font-size: 48px"></i>
+              <h3>ETC – Evacuated Tube Collector</h3>
+              <p>
+                ✔ Lower initial cost<br />✔ Works in diffused sunlight<br />✔
+                Quick heating<br />✔ Ideal for residential use
+              </p>
+              <span
+                style="
+                  background: var(--accent);
+                  display: inline-block;
+                  padding: 4px 12px;
+                  border-radius: 20px;
+                  margin-top: 10px;
+                  color: white;
+                "
+                >Economical</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Installation <span>Gallery</span></h2>
+          <div class="image-card-grid">
+            <div class="image-card animate-on-scroll">
+              <img
+                src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
+                alt="Residential Heater"
+              />
+              <div class="content">
+                <h3>200 LPD – Home</h3>
+                <p>Patna Residence</p>
+              </div>
+            </div>
+            <div class="image-card animate-on-scroll delay-1">
+              <img
+                src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600"
+                alt="Hotel Installation"
+              />
+              <div class="content">
+                <h3>1000 LPD – Hotel</h3>
+                <p>Hotel Grand, Muzaffarpur</p>
+              </div>
+            </div>
+            <div class="image-card animate-on-scroll delay-2">
+              <img
+                src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
+                alt="Hospital"
+              />
+              <div class="content">
+                <h3>5000 LPD – Hospital</h3>
+                <p>Patna Medical College</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-bg)" class="section">
+        <div class="container">
+          <h2 class="section-title">Estimate <span>Your Savings</span></h2>
+          <div class="calculator animate-on-scroll">
+            <div class="calc-grid">
+              <div>
+                <div class="calc-input-group">
+                  <label>Daily Hot Water Need (Litres)</label
+                  ><input type="number" id="litresInput" value="200" />
+                </div>
+                <div class="calc-input-group">
+                  <label>Current Heating Method</label
+                  ><select id="heaterType">
+                    <option value="electric">Electric Geyser</option>
+                    <option value="gas">Gas Geyser</option>
+                    <option value="diesel">Diesel Boiler</option>
+                  </select>
+                </div>
+                <button
+                  id="calcHeaterBtn"
+                  class="btn-primary"
+                  style="width: 100%"
+                >
+                  Calculate Savings →
+                </button>
+              </div>
+              <div class="result-box">
+                <h3>Annual Savings</h3>
+                <div class="amount" id="savingsAmount">₹ 12,000</div>
+                <p>System Cost: <strong id="systemCost">₹ 25,000</strong></p>
+                <p>Payback Period: <strong id="payback">2.1 years</strong></p>
+                <p>CO2 Reduction: <strong id="co2">1.2 tons/year</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-2">
+            <div class="animate-on-scroll">
+              <img
+                src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600"
+                class="split-image"
+                alt="Solar Water Heater"
+              />
+            </div>
+            <div class="animate-on-scroll delay-1">
+              <h2>
+                Why
+                <span style="color: var(--accent)"
+                  >Solar Opex Energies for Water Heaters?</span
+                >
+              </h2>
+              <p>
+                We supply and install BIS-certified solar water heaters with
+                5-year warranty. Our team ensures proper sizing, installation,
+                and after-sales support.
+              </p>
+              <ul class="custom-list">
+                <li>
+                  <i class="fas fa-check-circle"></i> 100 LPD to 10,000 LPD
+                  capacity
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Subsidy available for
+                  residential
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Free site inspection &
+                  proposal
+                </li>
+              </ul>
+              <a href="contact.html" class="btn-primary">Request Site Survey</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--light-bg)" class="section">
+        <div class="container">
+          <h2 class="section-title">Perfect <span>Applications</span></h2>
+          <div class="grid-3">
+            <div class="card animate-on-scroll">
+              <i class="fas fa-home"></i>
+              <h3>Residential</h3>
+              <p>Homes, apartments, bungalows</p>
+            </div>
+            <div class="card animate-on-scroll delay-1">
+              <i class="fas fa-hotel"></i>
+              <h3>Hotels & Resorts</h3>
+              <p>Guest rooms, kitchens, laundry</p>
+            </div>
+            <div class="card animate-on-scroll delay-2">
+              <i class="fas fa-hospital"></i>
+              <h3>Hospitals</h3>
+              <p>Patient bathrooms, sterilization</p>
+            </div>
+            <div class="card animate-on-scroll">
+              <i class="fas fa-industry"></i>
+              <h3>Industries</h3>
+              <p>Process heating, boiler feed</p>
+            </div>
+            <div class="card animate-on-scroll delay-1">
+              <i class="fas fa-school"></i>
+              <h3>Hostels & Colleges</h3>
+              <p>Student bathrooms, canteens</p>
+            </div>
+            <div class="card animate-on-scroll delay-2">
+              <i class="fas fa-swimming-pool"></i>
+              <h3>Swimming Pools</h3>
+              <p>Pool water heating</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+          <div class="faq-list animate-on-scroll">
+            <div class="faq-item">
+              <div class="faq-q">
+                What is the difference between FPC and ETC?
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-a">
+                FPC uses flat plates and works efficiently in colder climates.
+                ETC uses glass tubes and is more economical for warmer regions.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                Does it work on cloudy days? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-a">
+                Yes, both systems work in diffused sunlight. For continuous
+                backup, an electric element is provided.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                What is the warranty? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-a">
+                5 years on complete system, 15 years on tank, 25 years on
+                collectors.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-banner animate-on-scroll">
+        <h2>Switch to Solar Hot Water Today</h2>
+        <p>
+          Get a free quote and site assessment. Save money and the environment.
+        </p>
+        <a
+          href="contact.html"
+          class="btn-primary"
+          style="background: white; color: var(--primary-dark)"
+          ><i class="fas fa-calendar-alt"></i> Book Free Consultation</a
+        >
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <i class="fas fa-solar-panel"></i>
+              <div>
+                <h3>Solar Opex Energies</h3>
+                <p>POWERING TOMORROW</p>
+              </div>
+            </div>
+            <p>Leading solar EPC solutions provider in India.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a
+              ><a href="#"><i class="fab fa-instagram"></i></a
+              ><a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li>
+                <a href="residential-rooftop-solar.html">Rooftop Solar</a>
+              </li>
+              <li><a href="commercial-solar-solutions.html">Commercial</a></li>
+              <li><a href="industrial-solar-epc.html">Industrial EPC</a></li>
+              <li><a href="solar-water-pumps.html">Solar Pumps</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> A/14, Vyas Nagar Colony,
+                Ashiana Nagar, Patna, Bihar – 800025
+              </li>
+              <li><i class="fas fa-phone"></i> +91 9199707448</li>
+              <li>
+                <i class="fas fa-envelope"></i> Solar Opex Energies90@gmail.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Join the Revolution</h4>
+          <form id="newsletterForm">
+            <input type="email" placeholder="Your email" required /><button
+              type="submit"
+            >
+              Subscribe →
+            </button>
+          </form>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Solar Opex Energies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll animation
+      const headerEl = document.getElementById("main-header");
+      window.addEventListener("scroll", () =>
+        headerEl.classList.toggle("scrolled", window.scrollY > 50),
+      );
+
+      // Mobile Menu
+      const menuBtn = document.getElementById("menuToggleBtn"),
+        mobileMenu = document.getElementById("mobileMenuOverlay"),
+        backdrop = document.getElementById("backdropOverlay"),
+        closeBtn = document.getElementById("closeMobileMenu");
+      const openM = () => {
+        mobileMenu.classList.add("active");
+        backdrop.classList.add("active");
+        document.body.style.overflow = "hidden";
+        if (menuBtn) menuBtn.classList.add("active");
+      };
+      const closeM = () => {
+        mobileMenu.classList.remove("active");
+        backdrop.classList.remove("active");
+        document.body.style.overflow = "";
+        if (menuBtn) menuBtn.classList.remove("active");
+      };
+      if (menuBtn) menuBtn.addEventListener("click", openM);
+      if (closeBtn) closeBtn.addEventListener("click", closeM);
+      if (backdrop) backdrop.addEventListener("click", closeM);
+      document
+        .querySelectorAll(".mobile-menu-overlay a")
+        .forEach((l) => l.addEventListener("click", closeM));
+      const mobToggle = document.querySelector(".mobile-dropdown-toggle"),
+        mobSub = document.querySelector(".mobile-submenu");
+      if (mobToggle && mobSub)
+        mobToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          mobSub.classList.toggle("active");
+          const icon = mobToggle.querySelector("i:last-child");
+          if (mobSub.classList.contains("active")) {
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+          } else {
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+          }
+        });
+
+      // Water Heater Calculator
+      const litresInput = document.getElementById("litresInput"),
+        heaterType = document.getElementById("heaterType"),
+        calcBtn = document.getElementById("calcHeaterBtn");
+      const savingsSpan = document.getElementById("savingsAmount"),
+        systemCostSpan = document.getElementById("systemCost"),
+        paybackSpan = document.getElementById("payback"),
+        co2Span = document.getElementById("co2");
+      function calcHeater() {
+        let litres = parseFloat(litresInput.value) || 0,
+          type = heaterType.value;
+        let energyPerDay = litres * 0.05,
+          annualCost = 0,
+          systemCost = litres * 125;
+        if (type === "electric") annualCost = energyPerDay * 365 * 7.5;
+        else if (type === "gas") annualCost = litres * 0.008 * 365 * 60;
+        else annualCost = litres * 0.007 * 365 * 90;
+        let savings = annualCost * 0.8,
+          payback = systemCost / savings;
+        let co2Saved =
+          type === "electric"
+            ? energyPerDay * 365 * 0.85
+            : type === "gas"
+              ? litres * 0.008 * 365 * 2.5
+              : litres * 0.007 * 365 * 2.7;
+        savingsSpan.innerText = `₹ ${Math.round(savings).toLocaleString()}`;
+        systemCostSpan.innerText = `₹ ${Math.round(systemCost).toLocaleString()}`;
+        paybackSpan.innerText = `${payback.toFixed(1)} years`;
+        co2Span.innerText = `${(co2Saved / 1000).toFixed(1)} tons/year`;
+      }
+      if (calcBtn) calcBtn.addEventListener("click", calcHeater);
+      calcHeater();
+
+      // FAQ Accordion
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item
+          .querySelector(".faq-q")
+          .addEventListener("click", () => item.classList.toggle("active"));
+      });
+
+      // Newsletter
+      document
+        .getElementById("newsletterForm")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Thank you! Solar insights incoming.");
+          e.target.reset();
+        });
+
+      // Scroll Animation Observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("animated");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".animate-on-scroll")
+        .forEach((el) => observer.observe(el));
+      setTimeout(() => {
+        document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100)
+            el.classList.add("animated");
+        });
+      }, 100);
+    </script>
+  </body>
+</html>

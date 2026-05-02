@@ -1,0 +1,675 @@
+<header id="main-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <img src="images/logo-favicon.png" alt="Solar Opex Energies Logo" />
+        </div>
+        <div class="logo-text">
+          <h2>Solar Opex Energies</h2>
+          <p>Powering Future with Solar Energy</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle"
+            >Services <i class="fas fa-chevron-down"></i
+          ></a>
+          <div class="dropdown-menu">
+            <a href="residential-rooftop-solar.html"
+              >Residential Rooftop Solar</a
+            >
+            <a href="commercial-solar-solutions.html"
+              >Commercial Solar Solutions</a
+            >
+            <a href="industrial-solar-epc.html">Industrial Solar EPC</a>
+            <a href="solar-water-pumps.html">Solar Water Pumps</a>
+            <a href="solar-water-heaters.html">Solar Water Heaters</a>
+            <a href="solar-street-lights.html">Solar Street Lights</a>
+            <a href="Solar Subsidy Schemes.html">Solar Subsidy Schemes</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn-premium"
+          ><i class="fas fa-bolt"></i> Get Quote</a
+        >
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="menu-toggle" id="menuToggleBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+  <div class="mobile-close" id="closeMobileMenu">
+    <i class="fas fa-times"></i>
+  </div>
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <div class="mobile-dropdown">
+    <div class="mobile-dropdown-toggle">
+      <span><i class="fas fa-solar-panel"></i> Services</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="mobile-submenu">
+      <a href="residential-rooftop-solar.html">Residential Rooftop Solar</a>
+      <a href="commercial-solar-solutions.html">Commercial Solar Solutions</a>
+      <a href="industrial-solar-epc.html">Industrial Solar EPC</a>
+      <a href="solar-water-pumps.html">Solar Water Pumps</a>
+      <a href="solar-water-heaters.html">Solar Water Heaters</a>
+      <a href="solar-street-lights.html">Solar Street Lights</a>
+      <a href="Solar Subsidy Schemes.html">Solar Subsidy Schemes</a>
+    </div>
+  </div>
+  <a href="about.html"><i class="fas fa-chart-line"></i> About Us</a>
+  <a href="portfolio.html"><i class="fas fa-images"></i> Portfolio</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <div class="mobile-cta">
+    <a href="contact.html" class="btn-primary" style="justify-content: center"
+      ><i class="fas fa-headset"></i> Free Consultation</a
+    >
+  </div>
+</div>
+<div class="backdrop-overlay" id="backdropOverlay"></div>
+<style>
+  /* Header - FIXED OVERFLOW AND Z-INDEX */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    z-index: 1100;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(30, 111, 92, 0.12);
+    overflow-x: hidden;
+  }
+
+  header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-md);
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    gap: 20px;
+    width: 100%;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo-icon {
+    width: 58px;
+    height: 52px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    flex-shrink: 0;
+  }
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(36deg);
+  }
+  .logo-text h2 {
+    font-size: 24px;
+    color: var(--primary-dark);
+    margin: 0;
+  }
+  .logo-text p {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    color: var(--accent, #f9b23f);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: -6px;
+    padding-left: 3px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--black);
+    transition: var(--transition);
+    position: relative;
+    white-space: nowrap;
+  }
+  .nav-link:after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s;
+  }
+  .nav-link:hover:after,
+  .nav-link.active:after {
+    width: 100%;
+  }
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--accent);
+  }
+  .btn-premium {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 8px 22px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Desktop Dropdown */
+  /* Desktop Dropdown - FIXED Z-INDEX */
+  .dropdown {
+    position: relative;
+    z-index: 1001;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    width: 260px;
+    box-shadow: var(--shadow-lg);
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+    z-index: 1002;
+    padding: 12px 0;
+    border-top: 3px solid var(--accent);
+  }
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 22px;
+    text-decoration: none;
+    color: var(--black);
+    font-size: 14px;
+    transition: var(--transition);
+    background: white;
+    z-index: 1003;
+    position: relative;
+  }
+  .dropdown-menu a:hover {
+    background: var(--light-bg);
+    color: var(--accent);
+    padding-left: 30px;
+  }
+
+  /* Mobile Menu Button */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 1200;
+    padding: 8px;
+    flex-shrink: 0;
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    transition: var(--transition);
+    border-radius: 2px;
+  }
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 360px;
+    height: 100vh;
+    background: white;
+    z-index: 1150;
+    transition: 0.4s ease;
+    padding: 100px 28px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .mobile-menu-overlay.active {
+    right: 0;
+  }
+  .mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .mobile-menu-overlay a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .mobile-menu-overlay a i {
+    width: 28px;
+    color: var(--primary);
+  }
+  .mobile-dropdown {
+    border-bottom: 1px solid #eee;
+  }
+  .mobile-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .mobile-dropdown-toggle span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .mobile-dropdown-toggle span i {
+    width: 28px;
+    color: var(--primary);
+  }
+  .mobile-submenu {
+    display: none;
+    padding-left: 40px;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  .mobile-submenu.active {
+    display: flex;
+  }
+  .mobile-submenu a {
+    border-bottom: none;
+    padding: 8px 0;
+    font-size: 15px;
+  }
+  .mobile-cta {
+    margin-top: 20px;
+    padding-top: 10px;
+  }
+  .mobile-cta a {
+    border-bottom: none;
+    justify-content: center;
+  }
+  .backdrop-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1140;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+  .backdrop-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Responsive Breakpoints - FIXED */
+  @media (max-width: 1200px) {
+    .container {
+      padding: 0 40px;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .nav-link {
+      font-size: 14px;
+    }
+    .btn-premium {
+      padding: 8px 18px;
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      padding: 0 24px;
+    }
+    .nav-links {
+      display: none;
+    }
+    .menu-toggle {
+      display: flex;
+    }
+    .navbar {
+      padding: 12px 0;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 38px;
+    }
+    .logo-text h2 {
+      font-size: 18px;
+    }
+    .logo-text p {
+      font-size: 8px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 34px;
+    }
+    .section-title {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 16px;
+    }
+    .logo-icon {
+      width: 40px;
+      height: 35px;
+    }
+    .logo-text h2 {
+      font-size: 16px;
+    }
+    .logo-text p {
+      padding-top: 3px;
+      font-size: 8px;
+      letter-spacing: 0.5px;
+    }
+    .menu-toggle span {
+      width: 20px;
+    }
+  }
+  /* ===== DROPDOWN Z-INDEX FIX - PUT THIS AT THE END OF YOUR STYLES ===== */
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 260px;
+    width: max-content;
+    box-shadow: var(--shadow-lg);
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+    padding: 12px 0;
+    border-top: 3px solid var(--accent);
+    z-index: 9999 !important;
+  }
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 22px;
+    text-decoration: none;
+    color: var(--black);
+    font-size: 14px;
+    transition: var(--transition);
+    background: white;
+    z-index: 10000 !important;
+    position: relative;
+    white-space: nowrap;
+  }
+  .nav-links,
+  .navbar,
+  header {
+    overflow: visible !important;
+  }
+  .hero-bg-slideshow {
+    z-index: -2 !important;
+  }
+  .hero-overlay {
+    z-index: -1 !important;
+  }
+  .hero .container {
+    z-index: 2;
+  }
+</style>
+<script>
+  window.addEventListener("scroll", () => {
+    const header = document.getElementById("main-header");
+    if (header) {
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    }
+  });
+  // Mobile menu toggle animation
+  const menuToggleBtn = document.getElementById("menuToggleBtn");
+  if (menuToggleBtn) {
+    menuToggleBtn.addEventListener("click", function () {
+      this.classList.toggle("active");
+    });
+  }
+
+  // Close mobile menu when resizing to desktop view
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 1024) {
+      if (mobileMenu && mobileMenu.classList.contains("active")) {
+        closeMenu();
+      }
+      if (menuToggleBtn && menuToggleBtn.classList.contains("active")) {
+        menuToggleBtn.classList.remove("active");
+      }
+    }
+  });
+
+  // Background slideshow
+  const slides = document.querySelectorAll("#bgSlideshow .bg-image");
+  if (slides && slides.length) {
+    let idx = 0;
+    slides[idx].classList.add("active");
+    setInterval(() => {
+      slides[idx].classList.remove("active");
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add("active");
+    }, 5000);
+  }
+  // ============ FIXED: Stats Counter Animation for BOTH sections ============
+
+  // Function to animate a single stat element
+  function animateStatElement(element, targetValue, suffix = "") {
+    let currentValue = 0;
+    const duration = 2000; // 2 seconds
+    const stepTime = 16; // ~60fps
+    const steps = duration / stepTime;
+    const increment = targetValue / steps;
+    let currentStep = 0;
+
+    const interval = setInterval(() => {
+      currentStep++;
+      currentValue += increment;
+
+      if (currentStep >= steps) {
+        element.innerText = targetValue + suffix;
+        clearInterval(interval);
+      } else {
+        // Format based on whether it's an integer or decimal
+        if (Number.isInteger(targetValue)) {
+          element.innerText = Math.floor(currentValue) + suffix;
+        } else {
+          element.innerText = currentValue.toFixed(1) + suffix;
+        }
+      }
+    }, stepTime);
+  }
+
+  // Function to animate Hero Stats (elements with text like "10+", "500+")
+  function animateHeroStats() {
+    console.log("Hero stats animating..."); // Debug log
+    const heroStats = document.querySelectorAll(".hero-stats .stat h3");
+
+    heroStats.forEach((stat) => {
+      const targetText = stat.innerText.trim();
+      const match = targetText.match(/^([\d.]+)(.*)$/);
+      if (!match) return;
+
+      const targetValue = parseFloat(match[1]);
+      const suffix = match[2] || "";
+
+      if (isNaN(targetValue)) return;
+
+      // Reset to "0" before animating
+      stat.innerText = "0" + suffix;
+      animateStatElement(stat, targetValue, suffix);
+    });
+  }
+
+  // Function to animate Stats Row (elements with data-target attribute)
+  function animateStatsRow() {
+    console.log("Stats row animating..."); // Debug log
+    const statsRowNumbers = document.querySelectorAll(
+      ".stats-row .stat-number",
+    );
+
+    statsRowNumbers.forEach((stat) => {
+      const targetValue = parseInt(stat.getAttribute("data-target"));
+      if (isNaN(targetValue)) return;
+
+      // Reset to "0" before animating
+      stat.innerText = "0";
+      animateStatElement(stat, targetValue, "");
+    });
+  }
+
+  // Track if animations have been triggered
+  let heroStatsAnimated = false;
+  let statsRowAnimated = false;
+
+  // Create ONE observer for hero stats (runs once on page load/visibility)
+  const heroObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !heroStatsAnimated) {
+          animateHeroStats();
+          heroStatsAnimated = true;
+          heroObserver.disconnect(); // Stop observing hero section
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  // Create SEPARATE observer for stats row (runs when scrolled to)
+  const statsRowObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !statsRowAnimated) {
+          animateStatsRow();
+          statsRowAnimated = true;
+          statsRowObserver.disconnect(); // Stop observing stats row after animation
+        }
+      });
+    },
+    { threshold: 0.2 },
+  ); // Trigger when 20% of section is visible
+
+  // Observe both sections
+  const heroSection = document.querySelector(".hero");
+  const statsRowSection = document.querySelector(".stats-row");
+
+  if (heroSection) {
+    heroObserver.observe(heroSection);
+  }
+
+  if (statsRowSection) {
+    statsRowObserver.observe(statsRowSection);
+  }
+
+  // Fallback: For very fast connections, check if hero is already visible
+  setTimeout(() => {
+    if (!heroStatsAnimated && heroSection && isElementInViewport(heroSection)) {
+      animateHeroStats();
+      heroStatsAnimated = true;
+    }
+  }, 100);
+
+  // Helper function to check if element is in viewport
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
+</script>
