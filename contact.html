@@ -130,12 +130,13 @@
         justify-content: center;
         background: none;
         flex-shrink: 0;
+        margin-right: 5px;
       }
       .logo-icon img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        transform: rotate(36deg);
+        /* transform: rotate(36deg); */
       }
       .logo-text h2 {
         font-size: 24px;
@@ -588,7 +589,7 @@
         }
       }
 
-      /* FOOTER */
+      /* FOOTER STYLES */
       footer {
         background: var(--primary-dark);
         color: rgba(255, 255, 255, 0.8);
@@ -602,16 +603,44 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 40px;
         margin-bottom: 40px;
+        overflow: hidden;
       }
       .footer-logo {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         margin-bottom: 18px;
+        text-decoration: none;
       }
-      .footer-logo i {
-        font-size: 32px;
+      .footer-logo-icon {
+        width: 52px;
+        height: 48px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .footer-logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        /* transform: rotate(36deg); */
+      }
+      .footer-logo-text h3 {
+        font-size: 22px;
+        color: white;
+        margin: 0;
+        letter-spacing: -0.3px;
+      }
+      .footer-logo-text p {
+        font-size: 11px;
+        letter-spacing: 2px;
         color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: -4px;
       }
       .footer-col h4 {
         font-size: 17px;
@@ -646,6 +675,17 @@
         font-size: 14px;
       }
       .footer-col ul li a:hover {
+        color: var(--accent);
+        padding-left: 4px;
+      }
+      .email-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: 0.25s;
+        font-size: 14px;
+        word-break: break-all;
+      }
+      .email-link:hover {
         color: var(--accent);
         padding-left: 4px;
       }
@@ -719,8 +759,7 @@
           grid-template-columns: 1fr 1fr;
           gap: 20px;
         }
-        .footer-col:nth-child(1),
-        .footer-col:nth-child(4) {
+        .footer-col:nth-child(1) {
           grid-column: span 2;
         }
       }
@@ -757,6 +796,26 @@
       }
       .floating-btn:hover {
         transform: scale(1.08);
+      }
+      /* loading spinner */
+      .loading-spinner {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 0.6s linear infinite;
+        margin-left: 8px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
       }
     </style>
   </head>
@@ -818,8 +877,8 @@
       <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <div class="mobile-dropdown">
         <div class="mobile-dropdown-toggle">
-          <span><i class="fas fa-solar-panel"></i> Services</span>
-          <i class="fas fa-chevron-down"></i>
+          <span><i class="fas fa-solar-panel"></i> Services</span
+          ><i class="fas fa-chevron-down"></i>
         </div>
         <div class="mobile-submenu">
           <a href="residential-rooftop-solar.html">Residential Rooftop Solar</a>
@@ -875,7 +934,6 @@
       <section style="padding: 60px 0">
         <div class="container">
           <div class="contact-grid">
-            <!-- Left Column: Contact Info -->
             <div class="contact-details scroll-animate delay-1">
               <h2 style="margin-bottom: 24px">Let's Connect</h2>
               <div class="detail-item">
@@ -899,9 +957,16 @@
                 <i class="fas fa-envelope"></i>
                 <div>
                   <strong>Email Us</strong><br /><a
-                    href="mailto:solaropex90@gmail.com"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=solaropex90@gmail.com"
+                    target="_blank"
                     style="color: var(--primary)"
-                    >solaropex90@gmail.com</a
+                    >solaropex90@gmail.com <br
+                  /></a>
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=solaropexenergies@gmail.com.com"
+                    target="_blank"
+                    style="color: var(--primary)"
+                    >solaropexenergies@gmail.com</a
                   >
                 </div>
               </div>
@@ -913,18 +978,18 @@
                 </div>
               </div>
               <div class="map-container">
-                <!-- CORRECTED MAP: Exact location Patna, Ashiana Nagar, Vyas Nagar Colony -->
                 <iframe
-                  title="Solaropex Office Location Map - Patna"
-                  src="https://maps.google.com/maps?q=A%2F14%2C%20Vyas%20Nagar%20Colony%2C%20Opposite%20Sony%20Mansion%2C%20Ashiana%20Nagar%2C%20Patna%2C%20Bihar%20800025&z=16&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.7156616620045!2d85.083173!3d25.614362999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed570041ab4cdf%3A0x84a43d054b965c6a!2sSOLAR%20OPEX%20ENERGIES%20PVT.%20LTD.!5e0!3m2!1sen!2sin!4v1778505796394!5m2!1sen!2sin"
                   width="100%"
-                  height="300"
+                  height="350"
                   style="border: 0"
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+                >
+                </iframe>
               </div>
+
               <div class="social-media-icons">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
@@ -933,14 +998,24 @@
               </div>
             </div>
 
-            <!-- Right Column: Contact Form -->
+            <!-- CONTACT FORM with Google Apps Script -->
             <div class="contact-form scroll-animate delay-2">
               <h2 style="margin-bottom: 24px">Send a Message</h2>
               <form id="contactForm">
-                <input type="text" placeholder="Full Name *" required />
-                <input type="email" placeholder="Email Address *" required />
-                <input type="tel" placeholder="Phone Number" />
-                <select required>
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Full Name *"
+                  required
+                />
+                <input
+                  type="email"
+                  id="emailAddr"
+                  placeholder="Email Address *"
+                  required
+                />
+                <input type="tel" id="phoneNum" placeholder="Phone Number" />
+                <select id="serviceType" required>
                   <option value="">Select Service *</option>
                   <option>Residential Rooftop Solar</option>
                   <option>Commercial Solar Solutions</option>
@@ -952,12 +1027,14 @@
                   <option>Other / Not Sure</option>
                 </select>
                 <textarea
+                  id="messageReq"
                   rows="5"
                   placeholder="Tell us about your requirement, location, approximate load, etc."
                 ></textarea>
                 <button
                   type="submit"
                   class="btn-primary"
+                  id="contactSubmitBtn"
                   style="width: 100%; justify-content: center"
                 >
                   Send Message <i class="fas fa-paper-plane"></i>
@@ -973,17 +1050,18 @@
         </div>
       </section>
 
-      <!-- Additional CTA Section -->
       <section style="background: var(--light-bg); padding: 60px 0">
         <div class="container">
           <div
             style="text-align: center; max-width: 800px; margin: 0 auto"
             class="scroll-animate delay-3"
           >
-            <i
-              class="fas fa-solar-panel"
-              style="font-size: 64px; color: var(--accent); margin-bottom: 20px"
-            ></i>
+            <img
+              src="images/logo-favicon.png"
+              alt="Solar Logo"
+              style="width: 70px; margin-bottom: 20px"
+              onerror="this.style.display = 'none'"
+            />
             <h2>Get a Free Solar Assessment</h2>
             <p>
               Our experts will visit your site, analyze your energy needs, and
@@ -1000,20 +1078,25 @@
       </section>
     </main>
 
+    <!-- FOOTER with logo, Gmail redirect, and newsletter Google Script -->
     <footer>
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col scroll-animate">
-            <div class="footer-logo">
-              <i class="fas fa-solar-panel"></i>
-              <div>
-                <h3>Solaropex</h3>
-                <p style="font-size: 9px; letter-spacing: 2px">
-                  POWERING TOMORROW
-                </p>
+            <a href="#" class="footer-logo" style="text-decoration: none">
+              <div class="footer-logo-icon">
+                <img
+                  src="images/logo-favicon.png"
+                  alt="Solar Opex Energies Footer Logo"
+                  onerror="this.src = 'https://placehold.co/52x48?text=S'"
+                />
               </div>
-            </div>
-            <p>
+              <div class="footer-logo-text">
+                <h3>Solar Opex Energies</h3>
+                <p>Powering Future with Solar Energy</p>
+              </div>
+            </a>
+            <p style="margin-top: 12px; font-size: 14px; line-height: 1.5">
               Leading solar EPC solutions provider in India. Committed to clean
               energy and sustainable future.
             </p>
@@ -1026,19 +1109,23 @@
           <div class="footer-col scroll-animate delay-1">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
           <div class="footer-col scroll-animate delay-2">
             <h4>Our Services</h4>
             <ul>
-              <li><a href="#">Rooftop Solar</a></li>
-              <li><a href="#">Commercial Solar</a></li>
-              <li><a href="#">Industrial EPC</a></li>
-              <li><a href="#">Solar Pumps</a></li>
+              <li>
+                <a href="residential-rooftop-solar.html">Rooftop Solar</a>
+              </li>
+              <li>
+                <a href="commercial-solar-solutions.html">Commercial Solar</a>
+              </li>
+              <li><a href="industrial-solar-epc.html">Industrial EPC</a></li>
+              <li><a href="solar-water-pumps.html">Solar Pumps</a></li>
             </ul>
           </div>
           <div class="footer-col scroll-animate delay-3">
@@ -1049,126 +1136,233 @@
                 Opposite Sony Mansion, Ashiana Nagar, Patna, Bihar – 800025
               </li>
               <li><i class="fas fa-phone"></i> +91 9199707448</li>
-              <li><i class="fas fa-envelope"></i> solaropex90@gmail.com</li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=solaropex90@gmail.com"
+                  target="_blank"
+                  class="email-link"
+                  >solaropex90@gmail.com</a
+                >
+              </li>
             </ul>
           </div>
         </div>
         <div class="footer-newsletter scroll-animate">
           <h4>Join the Solar Revolution</h4>
-          <form id="newsletterForm">
+          <form id="newsletterFormFooter">
             <input
               type="email"
+              id="newsletterEmail"
               placeholder="Your email address"
               required
-            /><button type="submit">Subscribe →</button>
+            />
+            <button type="submit" id="newsletterBtn">Subscribe →</button>
           </form>
         </div>
         <div class="footer-bottom scroll-animate">
           <p>
-            &copy; 2025 Solaropex Energies. All rights reserved. | Designed with
-            <i class="fas fa-heart" style="color: var(--accent)"></i> for clean
-            future
+            &copy; 2026 Solaropex Energies. All rights reserved. | Designed by
+            <a href="https://skilled-va.com" target="_blank">
+              <img
+                src="https://skilled-va.com/wp-content/uploads/2023/04/Untitled-design-75.png"
+                alt="Skilled VA"
+                style="
+                  height: 15px;
+                  vertical-align: middle;
+                  margin-left: 5px;
+                  background: white;
+                "
+              />
+            </a>
           </p>
         </div>
       </div>
     </footer>
 
     <script>
-      (function () {
-        // Mobile Menu Elements
-        const menuToggle = document.getElementById("menuToggleBtn");
-        const mobileMenu = document.getElementById("mobileMenuOverlay");
-        const backdrop = document.getElementById("backdropOverlay");
-        const closeBtn = document.getElementById("closeMobileMenu");
-        const header = document.getElementById("main-header");
+      // === Google Apps Script Web App URL ===
+      const GOOGLE_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbz0m6Apoe9-xJval8W0bNXQX60U4ToP8ZMrxyUM42JXRyzytAIgZWoPEO4nRbhtbqT8lg/exec";
 
-        function openMenu() {
-          mobileMenu?.classList.add("active");
-          backdrop?.classList.add("active");
-          document.body.style.overflow = "hidden";
-          menuToggle?.classList.add("active");
+      // Helper to show button loading state
+      function setButtonLoading(btn, isLoading, originalText) {
+        if (!btn) return;
+        if (isLoading) {
+          btn.disabled = true;
+          btn.dataset.originalText = btn.innerHTML;
+          btn.innerHTML = `${originalText || btn.innerText} <span class="loading-spinner"></span>`;
+        } else {
+          btn.disabled = false;
+          if (btn.dataset.originalText)
+            btn.innerHTML = btn.dataset.originalText;
         }
-        function closeMenu() {
-          mobileMenu?.classList.remove("active");
-          backdrop?.classList.remove("active");
-          document.body.style.overflow = "";
-          menuToggle?.classList.remove("active");
-        }
-        menuToggle?.addEventListener("click", openMenu);
-        closeBtn?.addEventListener("click", closeMenu);
-        backdrop?.addEventListener("click", closeMenu);
-        document
-          .querySelectorAll(".mobile-menu-overlay a, .mobile-submenu a")
-          .forEach((link) => {
-            link.addEventListener("click", closeMenu);
+      }
+
+      // Silent submission to Google Sheets - NO POPUPS at all
+      async function silentSubmitToGoogleSheets(formData, formType) {
+        try {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ ...formData, formType }).toString(),
           });
-
-        // Mobile Dropdown Toggle
-        const mobDropdownToggle = document.querySelector(
-          ".mobile-dropdown-toggle",
-        );
-        const mobSubmenu = document.querySelector(".mobile-submenu");
-        if (mobDropdownToggle && mobSubmenu) {
-          mobDropdownToggle.addEventListener("click", (e) => {
-            e.preventDefault();
-            mobSubmenu.classList.toggle("active");
-            const icon = mobDropdownToggle.querySelector("i:last-child");
-            if (mobSubmenu.classList.contains("active")) {
-              icon?.classList.remove("fa-chevron-down");
-              icon?.classList.add("fa-chevron-up");
-            } else {
-              icon?.classList.remove("fa-chevron-up");
-              icon?.classList.add("fa-chevron-down");
-            }
-          });
+          return true;
+        } catch (error) {
+          console.error("Submission error:", error);
+          return false;
         }
+      }
 
-        // Header Scroll Effect
-        window.addEventListener("scroll", () => {
-          header?.classList.toggle("scrolled", window.scrollY > 50);
+      // CONTACT FORM HANDLER - NO ALERT, SILENT SUBMIT
+      const contactForm = document.getElementById("contactForm");
+      const contactBtn = document.getElementById("contactSubmitBtn");
+      if (contactForm) {
+        contactForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          setButtonLoading(contactBtn, true, "Sending...");
+          const fullName =
+            document.getElementById("fullName")?.value.trim() || "";
+          const email =
+            document.getElementById("emailAddr")?.value.trim() || "";
+          const phone = document.getElementById("phoneNum")?.value.trim() || "";
+          const service = document.getElementById("serviceType")?.value || "";
+          const message =
+            document.getElementById("messageReq")?.value.trim() || "";
+
+          if (!fullName || !email) {
+            // minimal inline feedback but no popup; just reset button and skip
+            setButtonLoading(contactBtn, false);
+            return;
+          }
+
+          const payload = {
+            fullName,
+            email,
+            phone,
+            service,
+            message,
+            timestamp: new Date().toISOString(),
+          };
+          await silentSubmitToGoogleSheets(payload, "contact");
+          // NO POPUP ALERT – just silently clear fields and reset button state
+          contactForm.reset();
+          setButtonLoading(contactBtn, false);
         });
+      }
 
-        // Close mobile menu on resize
-        window.addEventListener("resize", () => {
-          if (
-            window.innerWidth > 1024 &&
-            mobileMenu?.classList.contains("active")
-          ) {
-            closeMenu();
+      // NEWSLETTER FORM HANDLER - NO POPUP, SILENT
+      const newsletterForm = document.getElementById("newsletterFormFooter");
+      const newsletterBtn = document.getElementById("newsletterBtn");
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const emailInput = document.getElementById("newsletterEmail");
+          const emailVal = emailInput?.value.trim();
+          if (!emailVal || !emailVal.includes("@")) {
+            // silently ignore invalid, no popup
+            return;
+          }
+          setButtonLoading(newsletterBtn, true, "Subscribing...");
+          const payload = {
+            email: emailVal,
+            timestamp: new Date().toISOString(),
+          };
+          await silentSubmitToGoogleSheets(payload, "newsletter");
+          // clear input field, remove loading, no alert
+          if (emailInput) emailInput.value = "";
+          setButtonLoading(newsletterBtn, false);
+        });
+      }
+
+      // Mobile menu & scroll logic
+      const menuToggle = document.getElementById("menuToggleBtn");
+      const mobileMenu = document.getElementById("mobileMenuOverlay");
+      const backdrop = document.getElementById("backdropOverlay");
+      const closeBtn = document.getElementById("closeMobileMenu");
+      const header = document.getElementById("main-header");
+      function openMenu() {
+        mobileMenu?.classList.add("active");
+        backdrop?.classList.add("active");
+        document.body.style.overflow = "hidden";
+        menuToggle?.classList.add("active");
+      }
+      function closeMenu() {
+        mobileMenu?.classList.remove("active");
+        backdrop?.classList.remove("active");
+        document.body.style.overflow = "";
+        menuToggle?.classList.remove("active");
+      }
+      menuToggle?.addEventListener("click", openMenu);
+      closeBtn?.addEventListener("click", closeMenu);
+      backdrop?.addEventListener("click", closeMenu);
+      document
+        .querySelectorAll(".mobile-menu-overlay a, .mobile-submenu a")
+        .forEach((link) => link.addEventListener("click", closeMenu));
+      const mobDropdownToggle = document.querySelector(
+        ".mobile-dropdown-toggle",
+      );
+      const mobSubmenu = document.querySelector(".mobile-submenu");
+      if (mobDropdownToggle && mobSubmenu) {
+        mobDropdownToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          mobSubmenu.classList.toggle("active");
+          const icon = mobDropdownToggle.querySelector("i:last-child");
+          if (mobSubmenu.classList.contains("active")) {
+            icon?.classList.remove("fa-chevron-down");
+            icon?.classList.add("fa-chevron-up");
+          } else {
+            icon?.classList.remove("fa-chevron-up");
+            icon?.classList.add("fa-chevron-down");
           }
         });
+      }
+      window.addEventListener("scroll", () =>
+        header?.classList.toggle("scrolled", window.scrollY > 50),
+      );
+      window.addEventListener("resize", () => {
+        if (
+          window.innerWidth > 1024 &&
+          mobileMenu?.classList.contains("active")
+        )
+          closeMenu();
+      });
+      const animatedElements = document.querySelectorAll(".scroll-animate");
+      const scrollObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animated");
+              scrollObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      animatedElements.forEach((el) => scrollObserver.observe(el));
 
-        // Scroll Animation Observer
-        const animatedElements = document.querySelectorAll(".scroll-animate");
-        const scrollObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("animated");
-                scrollObserver.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
+      // Fix email link redirection for Gmail compose
+      const detailEmailLink = document.querySelector(
+        ".contact-details .detail-item a[href^='mailto']",
+      );
+      if (
+        detailEmailLink &&
+        detailEmailLink.getAttribute("href") === "mailto:solaropex90@gmail.com"
+      ) {
+        detailEmailLink.setAttribute(
+          "href",
+          "https://mail.google.com/mail/?view=cm&fs=1&to=solaropex90@gmail.com",
         );
-        animatedElements.forEach((el) => scrollObserver.observe(el));
-
-        // Newsletter Form
-        const newsletterForm = document.getElementById("newsletterForm");
-        newsletterForm?.addEventListener("submit", (e) => {
-          e.preventDefault();
-          alert("Thank you! You will receive solar insights.");
-          newsletterForm.reset();
-        });
-
-        // Contact Form
-        const contactForm = document.getElementById("contactForm");
-        contactForm?.addEventListener("submit", (e) => {
-          e.preventDefault();
-          alert("Thank you! Our solar expert will contact you soon.");
-          contactForm.reset();
-        });
-      })();
+        detailEmailLink.setAttribute("target", "_blank");
+      }
+    </script>
+    <script>
+      // Remove .html from URL without reloading
+      if (window.location.pathname.endsWith(".html")) {
+        const cleanUrl = window.location.pathname.replace(".html", "/");
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
     </script>
   </body>
 </html>
