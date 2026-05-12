@@ -27,7 +27,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
   background: #fff;
   color: #1e2a32;
   line-height: 1.6;
@@ -593,7 +593,7 @@ header.scrolled {
 .hero h1 {
   font-size: 64px;
   margin-bottom: 24px;
-  font-family: "Playfair Display", serif;
+  /* font-family: "Playfair Display", serif; */
   font-weight: 800;
   line-height: 1.2;
   text-shadow: 0 2px 15px rgb(0 0 0);
@@ -647,7 +647,7 @@ header.scrolled {
   font-weight: 800;
   color: var(--accent);
   line-height: 1.2;
-  font-family: "Playfair Display", serif;
+  /* font-family: "Playfair Display", serif; */
 }
 .stat-label {
   font-size: 16px;
@@ -675,7 +675,7 @@ header.scrolled {
   text-align: center;
   margin-bottom: 20px;
   color: var(--primary-dark);
-  font-family: "Playfair Display", serif;
+  /* font-family: "Playfair Display", serif; */
 }
 .section-title span {
   color: var(--accent);
@@ -1845,7 +1845,7 @@ header.scrolled {
         </div>
         <div class="logo-text">
           <h2>Solar Opex Energies</h2>
-          <p>Powering Future with Solar Energy</p>
+          <p> Powering Future with Solar Energy</p>
         </div>
       </a>
       
@@ -1955,7 +1955,7 @@ header.scrolled {
         </div>
         <div class="hero-overlay"></div>
         <div class="container scroll-animate">
-          <h1>Powering Future with <span>Solar Energy</span></h1>
+          <h1>Powering Future with <br> <span>Solar Energy</span></h1>
           <p>
             Reliable, sustainable, and cost-effective solar solutions for homes,
             businesses, and industries. Join the green revolution with Solar
@@ -2368,16 +2368,23 @@ header.scrolled {
     <footer>
       <div class="container">
         <div class="footer-grid">
-          <div class="footer-col scroll-animate">
-            <a href="#" class="footer-logo" style="text-decoration: none">
-              <div class="footer-logo-icon">
-                <img
-                  src="images/logo-favicon.png"
-                  alt="Solar Opex Energies Footer Logo"
-                  onerror="this.src = 'https://placehold.co/52x48?text=S'"
-                />
-              </div>
+          <div
+            class="footer-col scroll-animate"
+            style="padding: 0px 43px 10px 4px"
+          >
+            <a
+              href="index.html"
+              class="footer-logo"
+              style="text-decoration: none"
+            >
               <div class="footer-logo-text">
+                <div class="footer-logo-icon">
+                  <img
+                    src="images/logo-favicon.png"
+                    alt="Solar Opex Energies Footer Logo"
+                    onerror="this.src = 'https://placehold.co/52x48?text=S'"
+                  />
+                </div>
                 <h3>Solar Opex Energies</h3>
                 <p>Powering Future with Solar Energy</p>
               </div>
@@ -2387,26 +2394,45 @@ header.scrolled {
               energy and sustainable future.
             </p>
             <div class="social-links">
-  <a href="#">
-    <img src="images/facebook.png" alt="Facebook" />
-  </a>
+              <a href="#">
+                <img src="images/facebook.png" alt="Facebook" />
+              </a>
 
-  <a href="#">
-    <img src="images/instagram.png" alt="Instagram" />
-  </a>
+              <a href="#">
+                <img src="images/instagram.png" alt="Instagram" />
+              </a>
 
-  <a href="#">
-    <img src="images/linkedin.png" alt="LinkedIn" />
-  </a>
-</div>
+              <a href="#">
+                <img src="images/linkedin.png" alt="LinkedIn" />
+              </a>
+            </div>
           </div>
           <div class="footer-col scroll-animate delay-1">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Home</a></li>
-              <li><a href="about.html"><i class="fa fa-angle-right" aria-hidden="true"></i> About Us</a></li>
-              <li><a href="portfolio.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Portfolio</a></li>
-              <li><a href="contact.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Contact</a></li>
+              <li>
+                <a href="index.html"
+                  ><i class="fa fa-angle-right" aria-hidden="true"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="about.html"
+                  ><i class="fa fa-angle-right" aria-hidden="true"></i> About
+                  Us</a
+                >
+              </li>
+              <li>
+                <a href="portfolio.html"
+                  ><i class="fa fa-angle-right" aria-hidden="true"></i>
+                  Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="contact.html"
+                  ><i class="fa fa-angle-right" aria-hidden="true"></i>
+                  Contact</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-col scroll-animate delay-2">
