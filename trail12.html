@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Solar Opex Energies | About Us</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          "Segoe UI",
+          "Inter",
+          "Poppins",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Helvetica Neue",
+          sans-serif;
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* ===== GLOBAL VARIABLES (premium consistency) ===== */
+      :root {
+        --primary: #1a6f8c;
+        --primary-dark: #0e4f64;
+        --primary-light: #2d8ba8;
+        --accent: #f0b34b;
+        --accent-dark: #d4942c;
+        --black: #121f2c;
+        --gray: #2e4a5c;
+        --gray-soft: #5f7f8f;
+        --shadow-sm: 0 12px 28px -8px rgba(0, 0, 0, 0.04);
+        --shadow-md:
+          0 20px 32px -14px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.01);
+        --shadow-lg: 0 32px 48px -18px rgba(18, 31, 44, 0.2);
+        --shadow-glow: 0 25px 40px -12px rgba(240, 179, 75, 0.22);
+        --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      }
+
+      /* ===== ABOUT SECTION (image left, content right) ===== */
+      .about-section {
+        padding: 80px 6%;
+        background: linear-gradient(125deg, #ffffff 0%, #f9fcfd 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* premium texture/orb */
+      .about-section::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 80% 20%,
+          rgba(240, 179, 75, 0.02) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .about-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 70px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ===== IMAGE WRAPPER (left side, refined) ===== */
+      .about-image-wrapper {
+        position: relative;
+        height: auto;
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+      }
+
+      .image-inner {
+        position: relative;
+        width: 100%;
+        border-radius: 56px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        background: linear-gradient(145deg, #fef7e8, #fff5e4);
+      }
+
+      .image-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 0.6s ease,
+          filter 0.4s ease;
+        filter: brightness(1.01) contrast(1.02) saturate(1.03);
+      }
+
+      .about-image-wrapper:hover .image-inner {
+        box-shadow: var(--shadow-glow);
+      }
+
+      .about-image-wrapper:hover img {
+        transform: scale(1.02);
+      }
+
+      /* subtle glow overlay */
+      .image-glow-new {
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(
+          circle,
+          rgba(240, 179, 75, 0.18),
+          rgba(240, 179, 75, 0)
+        );
+        filter: blur(60px);
+        bottom: -40px;
+        left: -30px;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      /* ===== FLOATING CARDS (elegant, repositioned to match left side) ===== */
+      .floating-card {
+        position: absolute;
+        background: rgba(255, 255, 245, 0.94);
+        backdrop-filter: blur(14px);
+        padding: 14px 24px;
+        border-radius: 40px;
+        box-shadow:
+          0 20px 30px -12px rgba(0, 0, 0, 0.08),
+          0 0 0 1px rgba(255, 248, 225, 0.8);
+        z-index: 12;
+        min-width: 170px;
+        transition: var(--transition);
+        border: 1px solid rgba(240, 179, 75, 0.25);
+      }
+
+      .floating-card:hover {
+        transform: translateY(-6px) scale(1.01);
+        background: rgba(255, 255, 255, 0.98);
+        border-color: var(--accent);
+        box-shadow: 0 28px 38px -12px rgba(0, 0, 0, 0.12);
+      }
+
+      .floating-card h3 {
+        font-size: 26px;
+        color: var(--primary-dark);
+        font-weight: 800;
+        letter-spacing: -0.3px;
+        line-height: 1.2;
+      }
+
+      .floating-card p {
+        color: var(--gray);
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 6px;
+        letter-spacing: 0.3px;
+      }
+
+      .card-1 {
+        top: 20px;
+        left: -20px;
+      }
+
+      .card-2 {
+        bottom: 30px;
+        right: -22px;
+      }
+
+      /* play button refined (optional but elegant) */
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 88px;
+        height: 88px;
+        background: rgba(255, 255, 250, 0.96);
+        backdrop-filter: blur(12px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-dark);
+        font-size: 32px;
+        z-index: 15;
+        cursor: pointer;
+        box-shadow:
+          0 18px 32px -12px rgba(0, 0, 0, 0.2),
+          0 0 0 1px rgba(255, 245, 210, 0.9);
+        transition: all 0.25s ease;
+        font-weight: 500;
+        font-family: monospace;
+      }
+
+      .play-button:hover {
+        transform: translate(-50%, -50%) scale(1.08);
+        background: white;
+        color: var(--primary);
+        box-shadow: 0 24px 42px -14px rgba(0, 0, 0, 0.25);
+      }
+
+      @keyframes soft-pulse {
+        0% {
+          box-shadow:
+            0 18px 32px -12px rgba(0, 0, 0, 0.15),
+            0 0 0 0 rgba(240, 179, 75, 0.4);
+        }
+        70% {
+          box-shadow:
+            0 18px 32px -12px rgba(0, 0, 0, 0.15),
+            0 0 0 16px rgba(240, 179, 75, 0);
+        }
+        100% {
+          box-shadow:
+            0 18px 32px -12px rgba(0, 0, 0, 0.15),
+            0 0 0 0 rgba(240, 179, 75, 0);
+        }
+      }
+      .play-button {
+        animation: soft-pulse 2.4s infinite;
+      }
+
+      /* ===== RIGHT CONTENT (enhanced typography & details) ===== */
+      .about-content {
+        padding-right: 12px;
+      }
+
+      .section-tag {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .section-tag span {
+        width: 54px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 20px;
+      }
+
+      .section-tag p {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--primary);
+        text-transform: uppercase;
+        background: rgba(26, 111, 140, 0.06);
+        padding: 5px 14px;
+        border-radius: 40px;
+        backdrop-filter: blur(2px);
+      }
+
+      .about-content h2 {
+        font-size: 48px;
+        line-height: 1.2;
+        color: var(--black);
+        margin-bottom: 26px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .about-content h2 span {
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+      }
+
+      .about-content h2 span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 8px;
+        width: 100%;
+        height: 12px;
+        background: rgba(240, 179, 75, 0.3);
+        z-index: -1;
+        border-radius: 20px;
+      }
+
+      .about-text {
+        font-size: 16.5px;
+        line-height: 1.65;
+        color: var(--gray);
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+
+      .about-text strong {
+        color: var(--primary-dark);
+        font-weight: 700;
+      }
+
+      /* premium glass card (micro-interactions) */
+      .about-highlight {
+        margin-top: 32px;
+        padding: 18px 32px;
+        background: rgba(240, 179, 75, 0.08);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(240, 179, 75, 0.2);
+        border-radius: 42px;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .about-highlight:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 248, 225, 0.85);
+        border-color: rgba(240, 179, 75, 0.4);
+        box-shadow: 0 24px 36px -16px rgba(0, 0, 0, 0.08);
+      }
+
+      .quote-icon {
+        font-size: 46px;
+        color: var(--accent);
+        line-height: 1;
+        margin-bottom: 6px;
+        opacity: 0.8;
+        font-family: serif;
+      }
+
+      .about-highlight p {
+        font-size: 18px;
+        line-height: 1.55;
+        color: #1e2f3a;
+        font-weight: 500;
+      }
+
+      .about-highlight strong {
+        color: var(--primary);
+        font-weight: 800;
+      }
+
+      .premium-divider {
+        width: 58px;
+        height: 3px;
+        background: var(--accent);
+        margin: 16px 0 12px;
+        border-radius: 20px;
+      }
+
+      .founder {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .founder h4 {
+        font-size: 18px;
+        color: var(--primary-dark);
+        margin-bottom: 4px;
+        font-weight: 800;
+        letter-spacing: -0.2px;
+      }
+
+      .founder span {
+        color: var(--gray-soft);
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+      }
+
+      /* modern buttons */
+      .about-buttons {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 12px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          105deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        box-shadow: 0 10px 20px -10px rgba(26, 111, 140, 0.4);
+        border: none;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 28px -12px rgba(26, 111, 140, 0.5);
+        background: linear-gradient(
+          105deg,
+          var(--primary-light),
+          var(--primary)
+        );
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary-dark);
+        border: 1.5px solid rgba(26, 111, 140, 0.3);
+        backdrop-filter: blur(4px);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(26, 111, 140, 0.05);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px -8px rgba(0, 0, 0, 0.08);
+      }
+
+      /* ===== RESPONSIVE (powerful, image-left and content-right perfect on all devices) ===== */
+      @media (max-width: 1280px) {
+        .about-container {
+          gap: 50px;
+        }
+        .about-content h2 {
+          font-size: 42px;
+        }
+        .about-image-wrapper {
+          min-height: 480px;
+        }
+        .floating-card {
+          min-width: 158px;
+          padding: 12px 20px;
+        }
+        .card-1 {
+          left: -10px;
+        }
+        .card-2 {
+          right: -12px;
+        }
+      }
+
+      @media (max-width: 1050px) {
+        .about-section {
+          padding: 70px 5%;
+        }
+        .about-container {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .about-image-wrapper {
+          max-width: 580px;
+          margin: 0 auto;
+          width: 100%;
+          min-height: 440px;
+        }
+        .image-inner {
+          height: 100%;
+          min-height: 400px;
+        }
+        .image-inner img {
+          height: 100%;
+          max-height: 480px;
+          object-fit: cover;
+        }
+        .about-content {
+          text-align: left;
+          padding-right: 0;
+        }
+        .card-1,
+        .card-2 {
+          position: absolute;
+        }
+        .card-1 {
+          top: 15px;
+          left: 6px;
+        }
+        .card-2 {
+          bottom: 20px;
+          right: 8px;
+        }
+        .about-highlight {
+          padding: 18px 28px;
+        }
+      }
+
+      @media (max-width: 780px) {
+        .about-section {
+          padding: 60px 5%;
+        }
+        .about-content h2 {
+          font-size: 36px;
+        }
+        .about-text {
+          font-size: 15px;
+        }
+        .about-image-wrapper {
+          min-height: 400px;
+        }
+        .floating-card h3 {
+          font-size: 22px;
+        }
+        .floating-card p {
+          font-size: 11px;
+        }
+        .play-button {
+          width: 72px;
+          height: 72px;
+          font-size: 26px;
+        }
+        .about-highlight p {
+          font-size: 16px;
+        }
+        .about-buttons {
+          gap: 16px;
+        }
+        .btn-primary,
+        .btn-secondary {
+          padding: 10px 24px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .about-section {
+          padding: 48px 5%;
+        }
+        .about-content h2 {
+          font-size: 30px;
+          margin-bottom: 18px;
+        }
+        .section-tag {
+          margin-bottom: 18px;
+        }
+        .about-text {
+          margin-bottom: 16px;
+        }
+        .about-image-wrapper {
+          min-height: 360px;
+        }
+        .image-inner {
+          border-radius: 40px;
+        }
+        /* stack floating cards for ultra compact but still stylish */
+        .floating-card {
+          position: relative;
+          top: auto;
+          left: auto;
+          right: auto;
+          bottom: auto;
+          display: inline-block;
+          width: calc(50% - 8px);
+          margin: 6px 4px;
+          text-align: center;
+          min-width: 140px;
+        }
+        .card-1,
+        .card-2 {
+          position: relative;
+          transform: none;
+          margin: 6px auto;
+        }
+        .about-image-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .image-inner {
+          order: 1;
+        }
+        .floating-cards-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 12px;
+          order: 2;
+          width: 100%;
+        }
+        /* we restructure via flex wrap to keep design clean */
+        .about-image-wrapper {
+          flex-direction: column;
+        }
+        .image-inner {
+          width: 100%;
+        }
+        .image-glow-new {
+          display: none;
+        }
+        .play-button {
+          width: 64px;
+          height: 64px;
+          font-size: 22px;
+        }
+        .about-highlight {
+          padding: 16px 20px;
+        }
+        .quote-icon {
+          font-size: 36px;
+        }
+      }
+
+      /* special treatment for stacking floating cards inside wrapper for small devices */
+      @media (max-width: 550px) {
+        .about-image-wrapper {
+          position: relative;
+          display: block;
+        }
+        .image-inner {
+          margin-bottom: 18px;
+        }
+        .floating-card {
+          position: relative;
+          top: auto;
+          left: auto;
+          right: auto;
+          transform: none;
+          width: 100%;
+          max-width: 280px;
+          margin: 10px auto;
+          display: block;
+          text-align: center;
+        }
+        .card-1,
+        .card-2 {
+          bottom: auto;
+          right: auto;
+          margin: 12px auto;
+        }
+        .about-image-wrapper {
+          height: auto;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      /* Extra fine tune for large screens consistency */
+      @media (min-width: 1600px) {
+        .about-container {
+          max-width: 1500px;
+          gap: 90px;
+        }
+        .about-content h2 {
+          font-size: 56px;
+        }
+        .about-image-wrapper {
+          min-height: 580px;
+        }
+      }
+
+      /* micro scroll & transitions */
+      .btn-primary,
+      .btn-secondary,
+      .floating-card,
+      .about-highlight {
+        will-change: transform;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="about-section">
+      <div class="about-container">
+        <!-- LEFT SIDE: IMAGE + FLOATING CARDS + PLAY BUTTON (enhanced) -->
+        <div class="about-image-wrapper">
+          <div class="image-inner">
+            <img
+              src="images/abt-3.png"
+              alt="Solar Opex Energies - Premium Solar Installation"
+              loading="lazy"
+            />
+            <!-- <div class="image-glow-new"></div>
+            <div class="play-button" aria-label="Watch company overview video">
+              ▶
+            </div> -->
+          </div>
+
+          <!-- floating cards dynamically placed inside wrapper, better visibility -->
+          <div class="floating-card card-1">
+            <h3>500+</h3>
+            <p>Projects Installed</p>
+          </div>
+          <div class="floating-card card-2">
+            <h3>25+ MW</h3>
+            <p>Clean Energy Generated</p>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: CONTENT (enhanced micro details) -->
+        <div class="about-content">
+          <div class="section-tag">
+            <span></span>
+            <p>Know Who We Are</p>
+          </div>
+
+          <h2>About <span>Solar Opex</span> Energies</h2>
+
+          <p class="about-text">
+            Solar Opex Energies is a leading
+            <strong>Solar EPC Company</strong> dedicated to providing
+            high-quality, cost-effective solar solutions. We believe in a future
+            where every home, business, and industry runs on
+            <strong>clean energy</strong>.
+          </p>
+
+          <p class="about-text">
+            With a team of experienced engineers and technicians, we have
+            successfully installed over
+            <strong>500 projects</strong> across Bihar and Jharkhand,
+            cumulatively generating <strong>25+ MW</strong> of green power.
+          </p>
+
+          <!-- GLASS CARD (premium testimonial / micro detail) -->
+          <div class="about-highlight">
+            <div class="quote-icon">❝</div>
+            <p>
+              Our commitment to
+              <strong>Innovation, Sustainability,</strong>
+              and Customer Satisfaction has made us a trusted name in the Solar
+              Industry.
+            </p>
+            <div class="premium-divider"></div>
+            <div class="founder">
+              <h4>Solar Opex Energies</h4>
+              <span>Powering Tomorrow Sustainably</span>
+            </div>
+          </div>
+
+          <div class="about-buttons">
+            <a href="about.html" class="btn-primary">Know More →</a>
+            <a href="#portfolioGrid" class="btn-secondary">Our Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- subtle note: all styles respect image-left content-right layout, fully responsive -->
+  </body>
+</html>
