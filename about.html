@@ -74,6 +74,7 @@
         border: none;
         font-size: 16px;
         letter-spacing: 0.3px;
+        border: 2px solid transparent;
       }
       .btn-primary {
         background: linear-gradient(
@@ -83,11 +84,14 @@
         );
         color: white;
         box-shadow: var(--shadow-sm);
+        border: 2px solid transparent;
       }
       .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-        background: var(--primary-dark);
+        /* transform: translateY(-3px); */
+        box-shadow: 0 18px 28px -12px rgba(26, 111, 140, 0.45);
+        background: white;
+        color: var(--primary-dark);
+        border: 2px solid var(--primary-dark);
       }
 
       /* HEADER - FIXED: no overflow, proper z-index */
@@ -205,8 +209,11 @@
         flex-shrink: 0;
       }
       .btn-premium:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
+        /* transform: translateY(-3px); */
+        box-shadow: 0 18px 28px -12px rgba(26, 111, 140, 0.45);
+        background: white;
+        color: var(--primary-dark);
+        border: 2px solid var(--primary-dark);
       }
 
       /* DESKTOP DROPDOWN - FIXED: appears above everything */
@@ -833,12 +840,10 @@
 
       .btn-primary:hover {
         transform: translateY(-3px);
-        box-shadow: 0 20px 28px -12px rgba(26, 111, 140, 0.5);
-        background: linear-gradient(
-          105deg,
-          var(--primary-light),
-          var(--primary)
-        );
+        box-shadow: 0 18px 28px -12px rgba(26, 111, 140, 0.45);
+        background: white;
+        color: var(--primary-dark);
+        border: 2px solid var(--primary-dark);
       }
 
       .btn-secondary {
@@ -1830,6 +1835,10 @@
         font-weight: 600;
         cursor: pointer;
       }
+      .footer-newsletter button:hover {
+        color: var(--accent);
+        background: var(--primary-dark);
+      }
       .footer-newsletter h4 {
         font-size: 1.6rem;
         font-weight: 500;
@@ -2079,7 +2088,9 @@
             </div>
 
             <div class="about-buttons">
-              <a href="portfolio.html" class="btn-primary">Know More →</a>
+              <a href="portfolio.html" class="btn-primary"
+                >Know More <i class="fa-solid fa-arrow-right-to-bracket"></i
+              ></a>
               <a href="index.html#Port-Section" class="btn-secondary"
                 >Our Projects</a
               >
@@ -2438,7 +2449,9 @@
               placeholder="Your best email address"
               required
             />
-            <button type="submit" id="newsletterBtn">Subscribe →</button>
+            <button type="submit" id="newsletterBtn">
+              Subscribe <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </button>
           </form>
           <p style="font-size: 12px; margin-top: 12px; opacity: 0.7">
             No spam, only clean energy insights.

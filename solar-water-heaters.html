@@ -79,12 +79,14 @@
         );
         color: white;
         box-shadow: var(--shadow-sm);
+        border: 2px solid transparent;
       }
 
       .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-        background: var(--primary-dark);
+        box-shadow: 0 18px 28px -12px rgba(26, 111, 140, 0.45);
+        background: white;
+        color: var(--primary-dark);
+        border: 2px solid var(--primary-dark);
       }
 
       /* ========== PREMIUM HEADER (STICKY + ANIMATION) ========== */
@@ -222,8 +224,10 @@
         flex-shrink: 0;
       }
       .btn-premium:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
+        box-shadow: 0 18px 28px -12px rgba(26, 111, 140, 0.45);
+        background: white;
+        color: var(--primary-dark);
+        border: 2px solid var(--primary-dark);
       }
 
       /* Desktop Dropdown */
@@ -978,6 +982,10 @@
         font-weight: 600;
         cursor: pointer;
       }
+      .footer-newsletter button:hover {
+        color: var(--accent);
+        background: var(--primary-dark);
+      }
       .footer-newsletter h4 {
         font-size: 1.6rem;
         font-weight: 500;
@@ -1307,7 +1315,8 @@
                   class="btn-primary"
                   style="width: 100%"
                 >
-                  Calculate Savings →
+                  Calculate Savings
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i>
                 </button>
               </div>
               <div class="result-box">
@@ -1573,7 +1582,9 @@
               placeholder="Your best email address"
               required
             />
-            <button type="submit" id="newsletterBtn">Subscribe →</button>
+            <button type="submit" id="newsletterBtn">
+              Subscribe <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </button>
           </form>
           <p style="font-size: 12px; margin-top: 12px; opacity: 0.7">
             No spam, only clean energy insights.

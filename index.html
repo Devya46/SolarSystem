@@ -86,9 +86,9 @@ body {
   box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover {
-  transform: translateY(-3px);
+  /* transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  background: var(--primary-dark);
+  background: var(--primary-dark); */
 }
 .btn-secondary {
   background: transparent;
@@ -96,8 +96,9 @@ body {
   color: var(--primary);
 }
 .btn-secondary:hover {
-  background: var(--primary);
-  color: white;
+  background-color: transparent;
+        color: var(--primary-dark) ;
+  border: 2px solid var(--primary-dark) ;
   transform: translateY(-3px);
 }
 .btn-outline {
@@ -106,7 +107,9 @@ body {
   color: white;
 }
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
+  /* background: rgba(255, 255, 255, 0.1); */
+  color: var(--primary-dark) ;
+  border: 2px solid var(--primary-dark) ;
   transform: translateY(-3px);
 }
 
@@ -210,8 +213,15 @@ header.scrolled {
   color: var(--accent);
 }
 .btn-premium {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: white;
+  background: linear-gradient(
+          115deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        box-shadow: 0 8px 18px -8px rgba(26, 111, 140, 0.35);
+        border: 2px solid rgba(255, 255, 255, 0);
+
   padding: 8px 22px;
   border-radius: 40px;
   font-weight: 600;
@@ -222,8 +232,12 @@ header.scrolled {
   flex-shrink: 0;
 }
 .btn-premium:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  /* transform: translateY(-3px); */
+        box-shadow: 0 18px 28px -12px rgba(26, 111, 140, 0.45);
+        background: white;
+        color:var(--primary-dark) ;
+        border: 2px solid var(--primary-dark);
+
 }
 
 /* Desktop Dropdown */
@@ -921,15 +935,14 @@ header.scrolled {
         );
         color: white;
         box-shadow: 0 8px 18px -8px rgba(26, 111, 140, 0.35);
+        border: 2px solid rgba(255, 255, 255, 0);
       }
       .btn-primary:hover {
         transform: translateY(-3px);
         box-shadow: 0 18px 28px -12px rgba(26, 111, 140, 0.45);
-        background: linear-gradient(
-          115deg,
-          var(--primary-light),
-          var(--primary)
-        );
+        background: white;
+        color:var(--primary-dark) ;
+        border: 2px solid var(--primary-dark);
       }
       .btn-secondary {
         background: transparent;
@@ -938,9 +951,10 @@ header.scrolled {
         backdrop-filter: blur(4px);
       }
       .btn-secondary:hover {
-        background: rgba(26, 111, 140, 0.04);
-        border-color: var(--primary);
-        transform: translateY(-2px);
+        background-color: transparent;
+        color: var(--primary-dark) ;
+  border: 2px solid var(--primary-dark) ;
+  transform: translateY(-3px);
       }
 
       /* ===== IMAGE WRAPPER (elegant, less height) ===== */
@@ -1653,6 +1667,10 @@ header.scrolled {
         font-weight: 600;
         cursor: pointer;
       }
+    .footer-newsletter button:hover{
+      color: var(--accent);
+        background: var(--primary-dark);
+    }
       .footer-newsletter h4 {
     font-size: 1.6rem;
     font-weight: 500;
@@ -2057,7 +2075,7 @@ header.scrolled {
           </div>
 
           <div class="about-buttons">
-            <a href="about.html" class="btn-primary">Know More →</a>
+            <a href="about.html" class="btn-primary">Know More<i class="fa-solid fa-arrow-right-to-bracket"></i></a>
             <a href="#Port-Section" class="btn-secondary">Our Projects</a>
           </div>
         </div>
@@ -2194,7 +2212,7 @@ header.scrolled {
           <div class="portfolio-grid" id="portfolioGrid"></div>
           <div style="text-align: center; margin-top: 40px">
             <a href="portfolio.html" class="btn-secondary"
-              >View Full Portfolio</a
+              >View Full Portfolio<i class="fa-solid fa-arrow-right-to-bracket"></i></a
             >
           </div>
         </div>
@@ -2305,7 +2323,7 @@ header.scrolled {
                 </div>
               </div>
               <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 28px" id="quoteSubmitBtn">
-                Submit Request →
+                Submit Request <i class="fa-solid fa-arrow-right-to-bracket"></i>
               </button>
               <div id="quoteFormStatus" class="form-status" style="display: none;"></div>
             </form>
@@ -2486,7 +2504,7 @@ header.scrolled {
               placeholder="Your best email address"
               required
             />
-            <button type="submit" id="newsletterBtn">Subscribe →</button>
+            <button type="submit" id="newsletterBtn">Subscribe <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
           </form>
           <p style="font-size: 12px; margin-top: 12px; opacity: 0.7">
             No spam, only clean energy insights.
@@ -2662,7 +2680,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
                   <a href="${service.link}" class="premium-card-link">
                     <span>Explore Solution</span>
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
                   </a>
                 </div>
               </div>
@@ -3229,8 +3247,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       .premium-card-link:hover {
-        gap: 15px;
-        color: #e76f51;
+        background: white;
+        color:var(--primary-dark) ;
+        // border: 2px solid var(--primary-dark);
+
       }
       
       .premium-card-link:hover i {
