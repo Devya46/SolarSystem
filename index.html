@@ -2194,11 +2194,87 @@ header.scrolled {
                 <p>
                   CO₂ Reduction: <strong id="co2">42 tons</strong> (25 years)
                 </p>
+                <div id="warningMessage"></div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+     <script>
+  // Wait for DOM to be fully loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    const calculateBtn = document.getElementById("calculateBtn");
+    
+    // Check if button exists before adding event listener
+    if (calculateBtn) {
+      calculateBtn.addEventListener("click", function () {
+        // Get input values
+        const billInput = document.getElementById("billInput");
+        const areaInput = document.getElementById("areaInput");
+        
+        let bill = billInput ? (parseFloat(billInput.value) || 0) : 0;
+        let area = areaInput ? (parseFloat(areaInput.value) || 0) : 0;
+        
+        // Validation
+        if (bill <= 0 || area <= 0) {
+          alert("Please enter valid values for both monthly bill and area.");
+          return;
+        }
+        
+        // --- CALCULATION LOGIC ---
+        
+        // System size: 1 kW per 30 sq. ft. (rounded up, minimum 1 kW)
+        let systemSize = Math.max(1, Math.ceil(area / 30));
+        
+        // Monthly energy generation: 1 kW = 120 kWh per month (4 kWh/day)
+        const monthlyGeneration = systemSize * 120; // kWh
+        
+        // Cost per unit (assume ₹7.5 per kWh)
+        const ratePerUnit = 7.5;
+        
+        // Monthly savings = energy generated × rate
+        let monthlySavings = Math.round(monthlyGeneration * ratePerUnit);
+        
+        // But savings cannot exceed current bill
+        monthlySavings = Math.min(monthlySavings, bill);
+        
+        // Annual savings
+        const annualSavings = monthlySavings * 12;
+        
+        // System cost: ₹50,000 per kW
+        const systemCost = systemSize * 50000;
+        
+        // Payback period (years)
+        let payback = (systemCost / annualSavings).toFixed(1);
+        
+        // CO2 reduction per year: 1 kW = 1.5 tons
+        const co2 = (systemSize * 1.5).toFixed(1);
+        
+        // Update UI elements
+        const savingsElement = document.getElementById("savingsAmount");
+        const systemSizeElement = document.getElementById("systemSize");
+        const paybackElement = document.getElementById("payback");
+        const co2Element = document.getElementById("co2");
+        
+        if (savingsElement) savingsElement.innerText = `₹ ${monthlySavings.toLocaleString()}`;
+        if (systemSizeElement) systemSizeElement.innerText = `${systemSize} kW`;
+        if (paybackElement) paybackElement.innerText = `${payback} years`;
+        if (co2Element) co2Element.innerText = `${co2} tons`;
+        
+        // --- NOTE FOR SMALL ROOF AREA ---
+        const warningContainer = document.getElementById("warningMessage");
+        if (warningContainer) {
+          if (area < 30) {
+            warningContainer.innerHTML = `<p style="color: #e67e22; background: #fff3e0; padding: 8px 12px; border-radius: 5px; margin-top: 10px; font-size: 14px;">📝 Note: ${area} sq. ft. is below the recommended 30 sq. ft. for a 1 kW system. Actual savings may be lower.</p>`;
+          } else {
+            warningContainer.innerHTML = "";
+          }
+        }
+      });
+    }
+  });
+</script>
 
       <!-- Portfolio -->
       <section style="background: var(--light-bg)" class="section">
@@ -3232,14 +3308,16 @@ document.addEventListener('DOMContentLoaded', function() {
       
       .premium-card-link {
         display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-        color: #F5A623;
-        transition: all 0.3s ease;
-        padding: 8px 0;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    background: linear-gradient(115deg, var(--primary), var(--primary-dark));
+    border-radius: 10px;
+    padding: 10px 35px;
       }
       
       .premium-card-link i {
