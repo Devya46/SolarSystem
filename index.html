@@ -1193,7 +1193,7 @@ header.scrolled {
         }
         .floating-card {
           width: 90%;
-          margin: 6px auto;
+          margin: 16px auto;
           text-align: center;
         }
         .image-glow {
@@ -1245,6 +1245,38 @@ header.scrolled {
 }
 .step-card:last-child .step-arrow {
   display: none;
+}
+.how-it-works-video {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.how-it-works-video .content {
+  position: relative;
+  z-index: 2;
+}
+
+.how-it-works-video .section-sub {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Calculator */
@@ -1481,6 +1513,208 @@ header.scrolled {
   border-color: var(--accent);
   outline: none;
   box-shadow: 0 0 0 3px rgba(249, 178, 63, 0.2);
+}
+/* ---resposive----- */
+/* Contact Form Responsive Styles - No Color Changes */
+@media (max-width: 1200px) {
+  .contact-form-section {
+    max-width: 90%;
+    padding: 48px 40px;
+    margin: 2px auto;
+  }
+  
+  .form-grid {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-form-section {
+    max-width: 95%;
+    padding: 40px 32px;
+    border-radius: 40px;
+    margin: 20px auto;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 13px 18px;
+    font-size: 15px;
+    border-radius: 22px;
+  }
+  
+  .form-group[style*="grid-column: span 2"] {
+    grid-column: auto !important;
+  }
+  
+  .contact-form-section button[type="submit"] {
+    margin-top: 24px;
+    padding: 14px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form-section {
+    max-width: 100%;
+    padding: 32px 24px;
+    border-radius: 32px;
+    margin: 16px 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .form-grid {
+    gap: 18px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+  
+  .contact-form-section button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-form-section {
+    padding: 24px 18px;
+    border-radius: 28px;
+    margin: 12px 16px;
+    width: calc(100% - 32px);
+  }
+  
+  .form-grid {
+    gap: 14px;
+  }
+  
+  .form-group label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 18px;
+  }
+  
+  /* Improve touch targets for mobile */
+  .form-group input,
+  .form-group select,
+  .form-group textarea,
+  .contact-form-section button[type="submit"] {
+    min-height: 44px;
+  }
+  
+  textarea {
+    min-height: 90px;
+  }
+  
+  .contact-form-section button[type="submit"] {
+    margin-top: 18px;
+    padding: 12px 20px;
+    font-size: 14px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-form-section {
+    padding: 20px 14px;
+    border-radius: 24px;
+    margin: 10px 12px;
+    width: calc(100% - 24px);
+  }
+  
+  .form-grid {
+    gap: 12px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 9px 12px;
+    font-size: 13px;
+    border-radius: 16px;
+  }
+  
+  .form-group label {
+    font-size: 12px;
+  }
+  
+  .contact-form-section button[type="submit"] {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+}
+
+/* Landscape mode on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .contact-form-section {
+    padding: 20px 24px;
+    margin: 10px auto;
+  }
+  
+  .form-grid {
+    gap: 12px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 8px 14px;
+  }
+  
+  textarea {
+    min-height: 70px;
+  }
+}
+
+/* Tablet landscape specific */
+@media (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
+  .contact-form-section {
+    max-width: 90%;
+    padding: 36px 32px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .form-group[style*="grid-column: span 2"] {
+    grid-column: span 2 !important;
+  }
+}
+
+/* Smooth transitions for responsive changes - no color changes */
+.contact-form-section,
+.form-grid,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.contact-form-section button[type="submit"] {
+  transition: all 0.3s ease;
 }
 
 /* CTA */
@@ -1760,8 +1994,7 @@ header.scrolled {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-  .calc-grid,
-  .form-grid {
+  .calc-grid {
     grid-template-columns: 1fr;
   }
   .calculator-box,
@@ -2125,41 +2358,54 @@ header.scrolled {
       
 
       <!-- How It Works with arrows -->
-      <section style="background: var(--primary-dark)" class="section">
-        <div class="container">
-          <h2 class="section-title scroll-animate" style="color: white;">
-            How It <span>Works</span>
-          </h2>
-          <p class="section-sub scroll-animate">
-            Simple 4-step process to solar energy independence
-          </p>
-          <div class="steps-grid">
-            <div class="step-card scroll-animate">
-              <i class="fas fa-clipboard-list"></i>
-              <h3>1. Free Consultation</h3>
-              <p>Site visit, energy audit, and custom proposal.</p>
-              <i class="fas fa-arrow-right step-arrow"></i>
-            </div>
-            <div class="step-card scroll-animate">
-              <i class="fas fa-hard-hat"></i>
-              <h3>2. Design & Approval</h3>
-              <p>Custom system design and subsidy paperwork.</p>
-              <i class="fas fa-arrow-right step-arrow"></i>
-            </div>
-            <div class="step-card scroll-animate">
-              <i class="fas fa-plug"></i>
-              <h3>3. Installation</h3>
-              <p>In-house team, quality checks, 2-3 days completion.</p>
-              <i class="fas fa-arrow-right step-arrow"></i>
-            </div>
-            <div class="step-card scroll-animate">
-              <i class="fas fa-charging-station"></i>
-              <h3>4. Activation</h3>
-              <p>Net meter setup, go-live & remote monitoring.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section class="how-it-works-video section">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/VD-1.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="video-overlay"></div>
+
+  <div class="container content">
+    <h2 class="section-title scroll-animate" style="color: white;">
+      How It <span>Works</span>
+    </h2>
+
+    <p class="section-sub scroll-animate">
+      Simple 4-step process to solar energy independence
+    </p>
+
+    <div class="steps-grid">
+      <div class="step-card scroll-animate">
+        <i class="fas fa-clipboard-list"></i>
+        <h3>1. Free Consultation</h3>
+        <p>Site visit, energy audit, and custom proposal.</p>
+        <i class="fas fa-arrow-right step-arrow"></i>
+      </div>
+
+      <div class="step-card scroll-animate">
+        <i class="fas fa-hard-hat"></i>
+        <h3>2. Design & Approval</h3>
+        <p>Custom system design and subsidy paperwork.</p>
+        <i class="fas fa-arrow-right step-arrow"></i>
+      </div>
+
+      <div class="step-card scroll-animate">
+        <i class="fas fa-plug"></i>
+        <h3>3. Installation</h3>
+        <p>In-house team, quality checks, 2-3 days completion.</p>
+        <i class="fas fa-arrow-right step-arrow"></i>
+      </div>
+
+      <div class="step-card scroll-animate">
+        <i class="fas fa-charging-station"></i>
+        <h3>4. Activation</h3>
+        <p>Net meter setup, go-live & remote monitoring.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- Estimate Savings -->
       <section class="section">
@@ -2417,7 +2663,7 @@ header.scrolled {
             <img
               src="https://swelectes.com/images/logo-swelect.svg"
               alt="Swelects"
-              style="height: 60px; filter: brightness(0)"
+              style="height: 60px; opacity: 0.9"
             />
             <!-- <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Adani_Group_Logo.svg/1280px-Adani_Group_Logo.svg.png"
@@ -3318,6 +3564,7 @@ document.addEventListener('DOMContentLoaded', function() {
     background: linear-gradient(115deg, var(--primary), var(--primary-dark));
     border-radius: 10px;
     padding: 10px 35px;
+    border: 2px solid transparent;
       }
       
       .premium-card-link i {
@@ -3327,7 +3574,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .premium-card-link:hover {
         background: white;
         color:var(--primary-dark) ;
-        // border: 2px solid var(--primary-dark);
+        border: 2px solid var(--primary-dark);
 
       }
       
